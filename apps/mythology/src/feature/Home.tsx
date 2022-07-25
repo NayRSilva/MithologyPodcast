@@ -1,12 +1,22 @@
 import Banner from "../components/Banner";
+import { apiProvider } from "../services/api/ApiProvider";
+
 
   // Easiest way to declare a Function Component; return type is inferred.
   const Home = () => {
 
-    return(
+    const{isLoading, data} = apiProvider.getSingleAll('home', 'home-info');
+    
+    if(isLoading){
+      return(<div>Is Loading</div>)
+    }
+    else if(data){
+      console.log("nay", data)
+      return(
+
         <div style={exampleStyle}>
             <Banner>
-                <h1 style={exampleStyle}>Im a Banner</h1>
+                <h1 style={exampleStyle}>{data.data.data.attributes.Home[0].Title}</h1>
                 <h2>Welcome Home</h2>
             </Banner>
            
@@ -14,6 +24,9 @@ import Banner from "../components/Banner";
         </div>
 
     )
+    }
+    return(<h1>Hmmm</h1>)
+    
 
 
   }

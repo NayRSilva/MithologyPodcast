@@ -14,6 +14,8 @@ Running the projects:
 
 **React**: yarn nx serve mythology
 
+**Api Calls**: Por hora tem um arquivo chamado ApiProvider.tsx que contém um exemplo com o react-query para recuperar resources
+
 🔎 **Smart, Fast and Extensible Build System**
 
 ## Adding capabilities to your workspace
