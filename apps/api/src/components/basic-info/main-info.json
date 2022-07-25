@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_basic_info_main_infos",
+  "info": {
+    "displayName": "Main Info",
+    "icon": "clinic-medical"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  }
+}
