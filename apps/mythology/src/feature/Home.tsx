@@ -5,7 +5,8 @@ import { apiProvider } from "../services/api/ApiProvider";
   // Easiest way to declare a Function Component; return type is inferred.
   const Home = () => {
 
-    const{isLoading, data} = apiProvider.getSingleAll('home', 'home-info');
+    //const{isLoading, data} = apiProvider.getSingleAll('home', 'home-info');
+    const{isLoading, data} = apiProvider.getCollectionsAll('episodes', 'wtfd'); 
     
     if(isLoading){
       return(<div>Is Loading</div>)
@@ -16,7 +17,7 @@ import { apiProvider } from "../services/api/ApiProvider";
 
         <div style={exampleStyle}>
             <Banner>
-                <h1 style={exampleStyle}>{data.data.data.attributes.Home[0].Title}</h1>
+                {/* <h1 style={exampleStyle}>{data.data.data.attributes.Home[0].Title}</h1> */}
                 <h2>Welcome Home</h2>
             </Banner>
            
