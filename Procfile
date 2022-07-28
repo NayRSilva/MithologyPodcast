@@ -1,1 +1,1 @@
-web: nx reset && yarn nx serve api
+web: WEB_COMMAND=cd apps/strapi && yarn build
