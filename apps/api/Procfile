@@ -1,1 +1,1 @@
-web: yarn start
+web: yarn ${START_SCRIPT:-start}

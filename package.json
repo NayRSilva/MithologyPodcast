@@ -7,7 +7,8 @@
     "build": "nx build",
     "test": "nx test",    
     "build-strapi": "cd apps/api && yarn build",
-    "heroku-postbuild":"yarn ${BUILD_SCRIPT:-build-strapi}"
+    "heroku-postbuild":"yarn ${BUILD_SCRIPT:-build-strapi}",
+    "start-strapi":"cd apps/api && yarn start"
   },
   "engines": {
     "node": "16.15.1",
