@@ -6,7 +6,7 @@
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
-    "build": "yarn && yarn strapi build --verbose",
+    "build": "yarn && yarn strapi build",
     "strapi": "strapi"
   },
   "devDependencies": {},
