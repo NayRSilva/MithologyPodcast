@@ -1,1 +1,1 @@
-web: yarn nx serve api
+web: nx reset && yarn nx serve api
