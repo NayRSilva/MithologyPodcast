@@ -6,10 +6,11 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "heroku-postbuild": "cd apps/api && nx build $PROJECT_NAME --prod"
+    "heroku-postbuild": "yarn nx build api"
   },
   "engines": {
-    "node": "16.15.1"
+    "node": "16.15.1",
+    "yarn": "1.22.19"
   },
   "private": true,
   "dependencies": {
