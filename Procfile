@@ -1,1 +1,1 @@
-web: WEB_COMMAND=cd apps/strapi && yarn build
+web: ${WEB_COMMAND:-yarn start}
