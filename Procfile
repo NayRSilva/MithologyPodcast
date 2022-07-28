@@ -1,0 +1,1 @@
+web: yarn nx serve api
