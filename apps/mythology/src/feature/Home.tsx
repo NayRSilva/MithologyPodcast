@@ -6,17 +6,27 @@ import { apiProvider } from "../services/api/ApiProvider";
   const Home = () => {
 
     const{isLoading, data} = apiProvider.getSingleAll('home', 'home-info');
+    // const response = apiProvider.getQueryOEmb()
     
     if(isLoading){
-      return(<div>Is Loading</div>)
+    // const dataEmb = response.data.data
+
+      return(<div>Is Loading
+
+{/* <div
+      dangerouslySetInnerHTML={{__html: dataEmb.html}}
+    /> */}
+    <iframe title="teste" src="https://open.spotify.com/embed/episode/7makk4oTQel546B0PZlDM5?si=5HKdWdyqQbaMxwRlBC-7JA" width="100%" height="232" frameBorder="0"  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+      </div>)
     }
     else if(data){
-      console.log("nay", data)
+      // console.log("nay",response)
       return(
 
         <div style={exampleStyle}>
             <Banner>
-                <h1 style={exampleStyle}>{data.data.data.attributes.Home[0].Title}</h1>
+                {/* <h1 style={exampleStyle}>{data.data.data.attributes.Home[0].Title}</h1> */}
                 <h2>Welcome Home</h2>
             </Banner>
            
@@ -25,7 +35,19 @@ import { apiProvider } from "../services/api/ApiProvider";
 
     )
     }
-    return(<h1>Hmmm</h1>)
+    else{
+    // console.log("uhum,", response)
+    // const dataEmb = response.data.data
+    return(
+    <div>
+      <h1>Hmmm</h1>
+      {/* <div
+      dangerouslySetInnerHTML={{__html: dataEmb.html}}
+    /> */}
+
+      </div>
+    )
+  }
     
 
 

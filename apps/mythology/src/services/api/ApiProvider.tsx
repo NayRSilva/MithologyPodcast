@@ -16,6 +16,16 @@ const getSingleAll = (resource:string, nameKey:string) => {
 
 }
 
+const getEmbed= ()=>{
+  return axios.get('https://open.spotify.com/oembed?url=http://open.spotify.com/track/298gs9ATwr2rD9tGYJKlQR')
+}
+
+const getQueryOEmb= ()=>{
+  return useQuery(['episodes'], ()=> getEmbed())
+
+}
+
 export const apiProvider = { 
-   getSingleAll
+   getSingleAll,
+   getQueryOEmb
   };
