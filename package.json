@@ -5,8 +5,9 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test",
-    "heroku-postbuild": "yarn nx build api"
+    "test": "nx test",    
+    "build-strapi": "cd apps/api && yarn build",
+    "heroku-postbuild":"yarn ${BUILD_SCRIPT:-build-strapi}"
   },
   "engines": {
     "node": "16.15.1",
