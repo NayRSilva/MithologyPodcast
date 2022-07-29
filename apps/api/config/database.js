@@ -23,7 +23,7 @@ module.exports = ({ env }) => {
       `database: ${database}`
     )
   }
-  
+    
   return {
     connection: {
       client: 'postgres',
@@ -33,7 +33,11 @@ module.exports = ({ env }) => {
         database: database,
         user: username,
         password: password,
-        ssl: env.bool('DATABASE_SSL', false),
+        // ssl: env.bool('DATABASE_SSL', false),
+        ssl: {
+          rejectUnauthorized: false
+        },
+
       },
     },
   }
