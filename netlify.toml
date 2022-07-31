@@ -1,5 +1,3 @@
-NODE_VERSION = "16.16.0"
-
 [[plugins]]
 
-package="./tools/plugins/netlify/stop-building"
+package"./tools/plugins/netlify/stop-building"
