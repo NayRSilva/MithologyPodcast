@@ -24,7 +24,7 @@ module.exports = {
         projectChanged = projectChangedf(currentProject,lastDeployCommited, latestCommit)
 
         if(!projectChanged){
-            utils.build.cancelBuild("Build was cancelled because ${currentProject} was not changed")
+            utils.build.cancelBuild("Build was cancelled because "+currentProject+" was not changed")
 
         }
     }
