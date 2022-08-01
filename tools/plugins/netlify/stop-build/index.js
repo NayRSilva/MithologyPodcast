@@ -18,7 +18,7 @@ module.exports = {
         let projectChanged= false
         let lastDeployCommited = process.env.CACHED_COMMIT_REF;
         const latestCommit = 'HEAD';
-        projectChanged = projectChanged(currentProject,)
+        projectChanged = projectChanged(currentProject,lastDeployCommited, latestCommit)
 
         if(!projectChanged){
             utils.build.cancelBuild("Build was cancelled because ${currentProject} was not changed")
