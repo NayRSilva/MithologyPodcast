@@ -3,6 +3,7 @@ import { apiProvider } from "../services/api/ApiProvider";
 
 
   // Easiest way to declare a Function Component; return type is inferred.
+  //little comment
   const Home = () => {
 
     const{isLoading, data} = apiProvider.getSingleAll('home', 'home-info');
