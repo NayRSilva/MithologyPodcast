@@ -13,7 +13,7 @@ import { apiProvider } from "../services/api/ApiProvider";
    
       
       return(<div>Is Loading
-      <EmbedSpotify url='https://open.spotify.com/episode/7vNU05vvzkP2qqsmkq41Ql?si=0183394ec22a4ffb'></EmbedSpotify>
+      <EmbedSpotify url='https://open.spotify.com/episode/2n3OY4hdwQJUj7KpSWn4yX?si=3b9fcda587524a26'></EmbedSpotify>
 
       </div>)
     }
@@ -40,7 +40,7 @@ import { apiProvider } from "../services/api/ApiProvider";
      return(
          <div>
            <h1>Hmmm</h1>
-           <EmbedSpotify url='https://open.spotify.com/episode/7vNU05vvzkP2qqsmkq41Ql?si=0183394ec22a4ffb'></EmbedSpotify> 
+           <EmbedSpotify url='https://open.spotify.com/episode/2n3OY4hdwQJUj7KpSWn4yX?si=3b9fcda587524a26'></EmbedSpotify> 
 
          </div>
     )
