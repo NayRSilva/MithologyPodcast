@@ -5,7 +5,14 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",    
+    "build-strapi": "cd apps/api && yarn build",
+    "heroku-postbuild":"yarn ${BUILD_SCRIPT:-build-strapi}",
+    "start-strapi":"cd apps/api && yarn start"
+  },
+  "engines": {
+    "node": "16.15.1",
+    "yarn": "1.22.19"
   },
   "private": true,
   "dependencies": {

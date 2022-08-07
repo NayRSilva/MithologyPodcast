@@ -6,14 +6,15 @@
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
-    "build": "strapi build",
+    "build": "yarn && yarn strapi build",
     "strapi": "strapi"
   },
   "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.2.3",
-    "@strapi/plugin-users-permissions": "4.2.3",
     "@strapi/plugin-i18n": "4.2.3",
+    "@strapi/plugin-users-permissions": "4.2.3",
+    "@strapi/provider-upload-aws-s3": "^4.3.2",
+    "@strapi/strapi": "4.2.3",
     "better-sqlite3": "7.4.6"
   },
   "author": {
