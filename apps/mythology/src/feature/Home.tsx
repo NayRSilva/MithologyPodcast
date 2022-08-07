@@ -1,4 +1,5 @@
 import Banner from "../components/Banner";
+import EmbedSpotify from "../components/EmbedSpotify";
 import { apiProvider } from "../services/api/ApiProvider";
 
 
@@ -6,18 +7,26 @@ import { apiProvider } from "../services/api/ApiProvider";
   //little comment
   const Home = () => {
 
-    const{isLoading, data} = apiProvider.getSingleAll('home', 'home-info');
-    
+    const{isLoading, data} = apiProvider.GetSingleAll('home', 'home-info');
+
     if(isLoading){
-      return(<div>Is Loading</div>)
+   
+      
+      return(<div>Is Loading
+      <EmbedSpotify url='https://open.spotify.com/episode/7vNU05vvzkP2qqsmkq41Ql?si=0183394ec22a4ffb'></EmbedSpotify>
+
+      </div>)
     }
     else if(data){
-      console.log("nay", data)
+    
+      
       return(
 
         <div style={exampleStyle}>
+        
+        
             <Banner>
-                <h1 style={exampleStyle}>{data.data.data.attributes.Home[0].Title}</h1>
+                {/* <h1 style={exampleStyle}>{data.data.data.attributes.Home[0].Title}</h1> */}
                 <h2>Welcome Home</h2>
             </Banner>
            
@@ -26,7 +35,16 @@ import { apiProvider } from "../services/api/ApiProvider";
 
     )
     }
-    return(<h1>Hmmm</h1>)
+    else{
+   
+     return(
+         <div>
+           <h1>Hmmm</h1>
+           <EmbedSpotify url='https://open.spotify.com/episode/7vNU05vvzkP2qqsmkq41Ql?si=0183394ec22a4ffb'></EmbedSpotify> 
+
+         </div>
+    )
+  }
     
 
 
