@@ -8,13 +8,15 @@ export function EmbedSpotify(props:SpotifyProps) {
     const episodeUrl = props.url
     const{isLoading, data}  = apiProvider.GetQueryOEmb(episodeUrl)
     console.log("nay",data)
-    const dataEmb = data.data
+  
+    let dataEmb:any = null;
 
     if(isLoading){
         console.log("LOOOOD")
         return(<h1>Loading HERE</h1>)
     }
     else{
+        dataEmb = data.data
 
         console.log("Loaded", data)
 
@@ -27,6 +29,6 @@ export function EmbedSpotify(props:SpotifyProps) {
 }
   }
 
-  
+   
   export default EmbedSpotify;
   
