@@ -11,15 +11,12 @@ import { NavLink } from "react-router-dom";
             <div style={ImgHeaderStyle}/>
           </NavLink>
         </div>
-
     )
-
-
   }
 
   const HeaderStyle={
     width: '100vw',
-    height: '10vh',
+    height: '13vh',
     backgroundColor: '#E45C3F',
     display:'flex',
     justifyContent: 'center',
