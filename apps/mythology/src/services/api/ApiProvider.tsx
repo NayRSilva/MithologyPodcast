@@ -10,22 +10,22 @@ const getFunction = (resource:string)=>{
   
   }
 
-const getSingleAll = (resource:string, nameKey:string) => {
+const GetSingleAll = (resource:string, nameKey:string) => {
   return useQuery([nameKey], ()=> getFunction(resource))
 
 
 }
 
-const getEmbed= ()=>{
-  return axios.get('https://open.spotify.com/oembed?url=http://open.spotify.com/track/298gs9ATwr2rD9tGYJKlQR')
+const getEmbed= (url:string)=>{
+  return axios.get('https://open.spotify.com/oembed?url='+url)
 }
 
-const getQueryOEmb= ()=>{
-  return useQuery(['episodes'], ()=> getEmbed())
+const GetQueryOEmb= (url:string)=>{
+  return useQuery(['episodes'], ()=> getEmbed(url))
 
 }
 
 export const apiProvider = { 
-   getSingleAll,
-   getQueryOEmb
+   GetSingleAll,
+   GetQueryOEmb
   };
