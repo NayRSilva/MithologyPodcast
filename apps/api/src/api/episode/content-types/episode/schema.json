@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "episodes",
+  "info": {
+    "singularName": "episode",
+    "pluralName": "episodes",
+    "displayName": "Episode",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string"
+    },
+    "Descricao": {
+      "type": "richtext"
+    },
+    "Transcricao": {
+      "type": "richtext"
+    },
+    "spotify": {
+      "type": "string"
+    },
+    "audio": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "audios"
+      ]
+    },
+    "Capa": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Participante": {
+      "type": "component",
+      "repeatable": true,
+      "component": "personagem.personagem"
+    },
+    "youtube": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_personagem_personagems",
+  "info": {
+    "displayName": "Personagem",
+    "icon": "air-freshener",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string"
+    },
+    "imagem": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Descricao": {
+      "type": "string"
+    }
+  }
+}
