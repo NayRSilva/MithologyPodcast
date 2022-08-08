@@ -15,6 +15,14 @@ const GetSingleAll = (resource:string, nameKey:string) => {
 
 
 }
+const getEpisodesParticipants = ()=>{
+  return axios.get(baseURL+ 'episodes?populate=%2A&populate[0]=Participante&populate[1]=Participante.imagem')
+
+}
+const GetEpisodeWithParticipants=()=>{
+  return useQuery(['episodes'], ()=> getEpisodesParticipants())
+
+}
 
 const getEmbed= (url:string)=>{
   return axios.get('https://open.spotify.com/oembed?url='+url)
@@ -27,5 +35,6 @@ const GetQueryOEmb= (url:string)=>{
 
 export const apiProvider = { 
    GetSingleAll,
-   GetQueryOEmb
+   GetQueryOEmb,
+   GetEpisodeWithParticipants
   };
