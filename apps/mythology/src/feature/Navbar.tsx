@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
                     Home
                 </NavLink>
                 <NavLink 
-                to="Episode">
+                to="episode/1">
                     Episode
                 </NavLink>
 
