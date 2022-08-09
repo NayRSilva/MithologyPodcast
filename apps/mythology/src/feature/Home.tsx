@@ -12,7 +12,7 @@ import { apiProvider } from "../services/api/ApiProvider";
     if(isLoading){
    
       
-      return(<div>Is Loading
+      return(<div><h1>Is Loading </h1>
       <EmbedSpotify url='http://open.spotify.com/episode/2n3OY4hdwQJUj7KpSWn4yX?si=3b9fcda587524a26'></EmbedSpotify>
 
       </div>)
