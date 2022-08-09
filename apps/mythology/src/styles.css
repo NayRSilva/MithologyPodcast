@@ -24,6 +24,25 @@
     font-weight: normal;
 }
 
-body, h1, div{
+@font-face {
+    font-family: 'FiraSansCondensed';
+    src: local(FiraSans-Regular), url("assets/fonts/fira-sans/FiraSans-ExtraLight.ttf") format("truetype");
+    font-weight: normal;
+}
+
+body{
     font-family: 'FiraSans' ;
+    font-size: 1em;
+    color:#D1472A;
+    background-color: #EEF2FE;
+}
+
+h1, div, p{
+    font-family: 'FiraSans' ;
+    color:#D1472A;
+
+}
+
+.squaredIframe{
+    border-radius: 0px!important;
 }
