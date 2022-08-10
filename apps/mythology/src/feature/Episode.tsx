@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import Banner from "../components/Banner";
 import EpisodeSection from "../components/EpisodeSection";
-import GridContainer from "../components/GridContainer";
-import { ColumnDiv, CommonDiv } from "../components/styles/componentStyles";
+import ParticipantCard from "../components/ParticipantCard";
+import ParticipantSection from "../components/ParticipantSection";
+import { ColumnDiv} from "../components/styles/componentStyles";
 
   // Easiest way to declare a Function Component; return type is inferred.
   const Episode = () => {
@@ -16,6 +16,8 @@ import { ColumnDiv, CommonDiv } from "../components/styles/componentStyles";
                </div>
 
                <EpisodeSection id={id}></EpisodeSection>
+
+               <ParticipantSection></ParticipantSection>
       
                <div style={exampleStyle}>
                 test
