@@ -13,8 +13,17 @@ export const CommonDiv = styled.div`
     display:flex;
     flex-wrap: wrap;
     justify-content:center;
-`
 
+    
+`
+export const ParticipantContainer= styled.div`
+    flex-direction: column;
+    display:flex;
+    text-align:center;
+    flex-shrink:0;
+    width:200px;
+
+`
 export const RedBox = styled.div`
     height: 50px;
     width: 100%;
@@ -64,3 +73,34 @@ export const EpisodeInfo= styled.p`
 
 `
 
+export const CustomSecondTilte = styled.h2`
+    font-family: 'FiraSansCondensed';
+    font-size: 1.5em;
+    letter-spacing: -2px;
+
+`
+
+
+export const LateralSliderDiv = styled.div`
+    min-height: 200px;
+    display:flex;
+    flex: 0 0 100%;
+    width:100%;
+    justify-content:flex-start;
+    overflow-x:auto;
+    padding: 2% 0;
+
+    &:focus{
+        border: 2px solid black;
+    }
+
+ 
+`
+
+export const ParticipantPhoto = styled.img`
+    width: 80%;
+    margin: 10% 10%;
+    border-radius: 50%;
+    flex-shrink:0;
+
+`
