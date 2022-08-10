@@ -9,6 +9,10 @@ export const ButtonGeneral= styled.button`
     width: 18vw;
     padding: 10px 0px;
     border-radius:10px;
+    &:focus{
+        border: 2px solid black;
+    }
+
 
     @media(max-width: 800px) {
         width:25vw;
