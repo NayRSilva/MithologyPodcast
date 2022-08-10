@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+@font-face {
+    font-family: 'FiraSans';
+    src: local(FiraSans-Regular), url("assets/fonts/fira-sans/FiraSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'FiraSansBold';
+    src: local(FiraSans-Regular), url("assets/fonts/fira-sans/FiraSans-Bold.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'FiraSansItalic';
+    src: local(FiraSans-Regular), url("assets/fonts/fira-sans/FiraSans-Italic.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'FiraSansItalic';
+    src: local(FiraSans-Regular), url("assets/fonts/fira-sans/FiraSans-BoldItalic.ttf") format("truetype");
+    font-weight: normal;
+}
+
+body, h1, div{
+    font-family: 'FiraSans' ;
+}

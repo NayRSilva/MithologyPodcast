@@ -2,12 +2,48 @@
   "collectionName": "components_basic_info_main_infos",
   "info": {
     "displayName": "Main Info",
-    "icon": "clinic-medical"
+    "icon": "clinic-medical",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Title": {
       "type": "string"
+    },
+    "sectionBackground": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "facebook": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "youtube": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "instagram": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "tiktok": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
