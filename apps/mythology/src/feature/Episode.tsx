@@ -19,9 +19,7 @@ import { ColumnDiv} from "../components/styles/componentStyles";
 
                <ParticipantSection></ParticipantSection>
       
-               <div style={exampleStyle}>
-                test
-               </div>
+              
             
             </ColumnDiv>
             
