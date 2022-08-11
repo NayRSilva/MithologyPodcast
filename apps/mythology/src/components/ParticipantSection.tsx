@@ -39,7 +39,7 @@ export function ParticipantSection(props: ESectionProps) {
     return (
       <section ref={measuredRef} >
         <CustomSecondTilte>
-            Participantes
+            Participantes:
         </CustomSecondTilte>
         <LateralSliderDiv tabIndex={0} className={(isSmallerThenContainer())? 'center-small':''}>
 

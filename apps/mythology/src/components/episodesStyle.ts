@@ -15,8 +15,8 @@ export const ButtonGeneral= styled.button`
 
 
     @media(max-width: 800px) {
-        width:25vw;
-    font-size: 0.9em;
+        width:40vw;
+        font-size: 0.9em;
 
       }
 

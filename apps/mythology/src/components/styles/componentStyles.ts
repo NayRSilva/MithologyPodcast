@@ -49,7 +49,7 @@ export const ColumnDiv = styled.div`
     display:flex;
     flex-direction: column;
     width:80%;
-    margin: 0 10%;
+    margin: 5% 10%;
 
 `
 
@@ -81,7 +81,7 @@ export const Titles= styled.div`
 export const EpisodeInfo= styled.p`
     font-family: 'FiraSansCondensed';
     font-size:1.2em;
-
+    margin:2vh 0;
     
     @media(max-width: 1025px) {
         font-size: 1em;
