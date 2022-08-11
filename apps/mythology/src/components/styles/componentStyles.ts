@@ -21,7 +21,12 @@ export const ParticipantContainer= styled.div`
     display:flex;
     text-align:center;
     flex-shrink:0;
-    width:200px;
+    width:400px;
+
+    @media(max-width: 1025px) {
+        width:200px;
+
+      }
 
 `
 export const RedBox = styled.div`
@@ -53,14 +58,16 @@ export const ColumnDiv = styled.div`
 
 `
 
-export const LightTitle= styled.h4`
+export const LightTitle= styled.h3`
     font-family: 'FiraSansCondensed';
+    font-size: 2em;
+
 
 
 `
 export const BoldTitle= styled.h1`
     font-family: 'FiraSansBold';
-    font-size: 2em;
+    font-size: 4em;
     letter-spacing: -2px;
 
     @media(max-width: 1025px) {
@@ -80,7 +87,7 @@ export const Titles= styled.div`
 
 export const EpisodeInfo= styled.p`
     font-family: 'FiraSansCondensed';
-    font-size:1.2em;
+    font-size:2em;
     margin:2vh 0;
     
     @media(max-width: 1025px) {
@@ -93,7 +100,7 @@ export const EpisodeInfo= styled.p`
 
 export const EpisodeSummary= styled.div`
     font-family: 'FiraSans';
-    font-size:1.2em;
+    font-size:2em;
     letter-spacing: -2px;
     margin: 3% 0;
 
@@ -123,7 +130,7 @@ export const LineDivisor = styled.div`
 export const CustomSecondTilte = styled.h2`
     margin: 5% 0;
     font-family: 'FiraSansCondensed';
-    font-size: 2em;
+    font-size: 4em;
     letter-spacing: -2px;
 
     
@@ -149,7 +156,7 @@ export const TranscriptionBox = styled.div`
     padding: 2vh 2vh;
     border-radius: 15px;
     line-height: 35px;
-    font-size:1.3em;
+    font-size:2.2em;
     height: 200px;
     margin-bottom:5%;
 

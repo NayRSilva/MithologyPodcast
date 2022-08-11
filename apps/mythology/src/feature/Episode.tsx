@@ -11,11 +11,7 @@ import { ColumnDiv} from "../components/styles/componentStyles";
     return(
 
             <ColumnDiv>
-               <div style={exampleStyle}>
-                test
-               </div>
-
-               <EpisodeSection id={id}></EpisodeSection>
+              <EpisodeSection id={id}></EpisodeSection>
 
                <ParticipantSection></ParticipantSection>
       
