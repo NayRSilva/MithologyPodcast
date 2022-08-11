@@ -2,18 +2,19 @@ import ControlledSpotify from "./ControlledSpotify";
 import EmbedSpotify from "./EmbedSpotify";
 import { BoldTitle, ComponentDiv, EpisodeInfo, GridDiv, LightTitle, Titles} from "./styles/componentStyles";
 import {ButtonGeneral, ComponentEpisodeDiv} from "./episodesStyle";
+import YoutubeEmbed from "./YoutubeEmbed";
 
 type EMidiaProps = {
     id: string|undefined;
     children?: JSX.Element[] | JSX.Element;
     episode?:any|undefined;
 }
-
 export function EpisodeMidia(props: EMidiaProps) {
     return (
       <>
       <EpisodeInfo>Escute via Youtube ou Spotify</EpisodeInfo>
-      {/* <EmbedSpotify url='http://open.spotify.com/episode/2n3OY4hdwQJUj7KpSWn4yX?si=3b9fcda587524a26'></EmbedSpotify> */}
+
+        <YoutubeEmbed embedId="upUoEh6EA-Y"></YoutubeEmbed>      
         <ControlledSpotify url={"https://open.spotify.com/episode/57VCq44UEL9OPDmdvz4fte?si=0d39385dddec4216"}></ControlledSpotify>
         <ComponentEpisodeDiv>
         <EpisodeInfo style={leftInfo}>28 de Agosto</EpisodeInfo>
