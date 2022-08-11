@@ -56,11 +56,22 @@ export const ColumnDiv = styled.div`
 export const LightTitle= styled.h4`
     font-family: 'FiraSansCondensed';
 
+
 `
 export const BoldTitle= styled.h1`
     font-family: 'FiraSansBold';
     font-size: 2em;
     letter-spacing: -2px;
+
+    @media(max-width: 1025px) {
+        font-size: 1.8em;
+
+      }
+
+      @media(max-width: 800px) {
+        font-size: 1.4em;
+
+      }
 
 `
 export const Titles= styled.div`
@@ -71,12 +82,90 @@ export const EpisodeInfo= styled.p`
     font-family: 'FiraSansCondensed';
     font-size:1.2em;
 
+    
+    @media(max-width: 1025px) {
+        font-size: 1em;
+
+      }
+
+
+`
+
+export const EpisodeSummary= styled.div`
+    font-family: 'FiraSans';
+    font-size:1.2em;
+    letter-spacing: -2px;
+    margin: 3% 0;
+
+    
+    @media(max-width: 1025px) {
+        font-size: 1em;
+        letter-spacing: 0px;
+        margin: 3vh 0;
+
+
+
+      }
+
+
+
+`
+
+export const LineDivisor = styled.div`
+    
+    width: 80%;
+    margin: 0 10%;
+    height: 5px;
+    border-bottom: 2px solid #D1472A;
+
 `
 
 export const CustomSecondTilte = styled.h2`
+    margin: 5% 0;
     font-family: 'FiraSansCondensed';
-    font-size: 1.5em;
+    font-size: 2em;
     letter-spacing: -2px;
+
+    
+    @media(max-width: 1025px) {
+        font-size: 1.8em;
+
+      }
+
+      @media(max-width: 800px) {
+        font-size: 1.4em;
+
+      }
+
+
+`
+
+export const TranscriptionBox = styled.div`
+    background: #D9D9D9;
+    font-family: 'FiraSansCondensed';
+    letter-spacing: -1px;
+    overflow-y: auto;
+    text-align:center;
+    padding: 2vh 2vh;
+    border-radius: 15px;
+    line-height: 35px;
+    font-size:1.3em;
+    height: 200px;
+    margin-bottom:5%;
+
+    &:focus{
+        border: 2px solid black;
+    }
+
+    @media(max-width: 1025px) {
+        font-size: 1em;
+
+      }
+    
+    @media(max-width: 800px) {
+        font-size: 1em;
+
+      }
 
 `
 
