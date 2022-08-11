@@ -18,7 +18,7 @@ export function App() {
           <Global/>
           <Routes>
             <Route path="/" element={<Home />}/>
-            <Route path="/episode" element={<Episode />}/>
+            <Route path="/episode/:id" element={<Episode />}/>
 
 
             </Routes>

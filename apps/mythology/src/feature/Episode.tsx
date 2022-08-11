@@ -1,19 +1,27 @@
-import Banner from "../components/Banner";
-import { CommonDiv } from "../components/styles/componentStyles";
+import { useParams } from "react-router-dom";
+import EpisodeSection from "../components/EpisodeSection";
+import ParticipantCard from "../components/ParticipantCard";
+import ParticipantSection from "../components/ParticipantSection";
+import { ColumnDiv} from "../components/styles/componentStyles";
 
   // Easiest way to declare a Function Component; return type is inferred.
   const Episode = () => {
+    const { id } = useParams();
 
     return(
 
-            <CommonDiv>
-                <div>
-                <h1 style={exampleStyle}>Episode</h1>
-                <h3>I'm an Episode</h3>
+            <ColumnDiv>
+               <div style={exampleStyle}>
+                test
+               </div>
 
+               <EpisodeSection id={id}></EpisodeSection>
 
-                </div>
-            </CommonDiv>
+               <ParticipantSection></ParticipantSection>
+      
+              
+            
+            </ColumnDiv>
             
     )
 
@@ -23,7 +31,7 @@ import { CommonDiv } from "../components/styles/componentStyles";
   const exampleStyle={
     width: '100%',
     display:'flex',
-    textAlign:'center' as const
+    justifyContent:'center'
   }
 
   export default Episode;
