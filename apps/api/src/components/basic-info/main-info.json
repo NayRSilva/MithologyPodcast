@@ -11,39 +11,24 @@
       "type": "string"
     },
     "sectionBackground": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
-    "facebook": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
+    "facebookURL": {
+      "type": "string"
     },
-    "youtube": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
+    "youtubeURL": {
+      "type": "string"
     },
-    "instagram": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
+    "instagramURL": {
+      "type": "string"
     },
-    "tiktok": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
+    "tiktokURL": {
+      "type": "string"
     }
   }
 }

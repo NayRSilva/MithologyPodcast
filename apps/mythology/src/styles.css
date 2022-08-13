@@ -1,1 +1,108 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+@font-face {
+    font-family: 'FiraSans';
+    src: local(FiraSans-Regular), url("assets/fonts/fira-sans/FiraSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'FiraSansBold';
+    src: local(FiraSans-Regular), url("assets/fonts/fira-sans/FiraSans-Bold.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'FiraSansItalic';
+    src: local(FiraSans-Regular), url("assets/fonts/fira-sans/FiraSans-Italic.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'FiraSansItalic';
+    src: local(FiraSans-Regular), url("assets/fonts/fira-sans/FiraSans-BoldItalic.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'FiraSansCondensed';
+    src: local(FiraSans-Regular), url("assets/fonts/fira-sans/FiraSans-ExtraLight.ttf") format("truetype");
+    font-weight: normal;
+}
+
+body{
+    font-family: 'FiraSans' ;
+    font-size: 1em;
+    color:#D1472A;
+    background-color: #EEF2FE;
+}
+
+h1, div, h2, p{
+    font-family: 'FiraSans' ;
+    color:#D1472A;
+
+}
+
+.squaredIframe{
+    border-radius: 0px!important;
+}
+
+
+/*Scrollbar classes*/
+
+/* .custom-scrollbars__content {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .custom-scrollbars__content::-webkit-scrollbar {
+    display: none;
+  } */
+
+  ::-webkit-scrollbar {
+    height: 10px;
+    width:10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #D9D9D9; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #E45C3F; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ce5237; 
+
+
+  }
+
+  .center-small{
+      justify-content:center!important;
+ 
+  }
+
+  /*Youtube embed classes*/
+
+  .video-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    margin-bottom: 5vh;
+  }
+  
+  .video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+  

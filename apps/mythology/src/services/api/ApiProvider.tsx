@@ -1,11 +1,15 @@
 
 import axios from 'axios'; 
-import {useQuery} from 'react-query'
+import {useQuery} from 'react-query';
 
 
-const baseURL = 'http://localhost:1337/api/'
+
+// const baseURL = 'http://localhost:1337/api/'
+let baseURL = (process.env.NX_BASE_API_URL as string)
 
 const getFunction = (resource:string)=>{
+  if(!baseURL) baseURL = "api.mitologianodiaadia.com.br"
+  console.log("NAHA",baseURL)
     return axios.get(baseURL+ resource+'?populate=*')
   
   }
@@ -16,6 +20,8 @@ const GetSingleAll = (resource:string, nameKey:string) => {
 
 }
 const getEpisodesParticipants = ()=>{
+  if(!baseURL) baseURL = "api.mitologianodiaadia.com.br"
+
   return axios.get(baseURL+ 'episodes?populate=%2A&populate[0]=Participante&populate[1]=Participante.imagem')
 
 }
