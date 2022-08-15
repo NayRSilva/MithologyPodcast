@@ -4,9 +4,9 @@ export const ButtonGeneral= styled.button`
     font-family: 'FiraSansCondensed';
     background-color:#E45C3F;
     color:#FCE4E4;
-    font-size: 2em;
+    font-size: 22px;
     border:0;
-    width: 18vw;
+    width: 10vw;
     padding: 10px 0px;
     border-radius:10px;
     &:focus{
@@ -30,7 +30,7 @@ export const ComponentEpisodeDiv = styled.div`
 `
 
 export const ProfessorName = styled.h3`
-      font-size: 2.1em;
+      font-size: 24px;
 
       @media(max-width: 1025px) {
         font-size:1.2em;
@@ -42,7 +42,7 @@ export const ProfessorName = styled.h3`
 export const ProfessorCargo = styled.p`
 font-family: 'FiraSansCondensed';
 
-      font-size: 1.8em;
+      font-size: 22px;
 
       
       @media(max-width: 1025px) {
