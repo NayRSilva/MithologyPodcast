@@ -9,7 +9,6 @@ export const MainDiv = styled.div`
 export const CommonDiv = styled.div`
     width: 100%;
     height:200px;
-    background: #F3EAE8;
     display:flex;
     flex-wrap: wrap;
     justify-content:center;

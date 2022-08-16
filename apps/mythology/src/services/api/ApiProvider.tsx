@@ -3,11 +3,13 @@ import axios from 'axios';
 import {useQuery} from 'react-query'
 
 
-const baseURL = 'api.mitologianodiaadia.com.br/api/'
+let baseURL = process.env.NX_BASE_API_URL as string;
 
-const getFunction = (resource:string)=>{
-    return axios.get(baseURL+ resource+'?populate=*')
-  }
+const getFunction = (resource: string) => {
+  if (!baseURL) baseURL = 'https://api.mitologianodiaadia.com.br/api/';
+  console.log('NAHA', baseURL);
+  return axios.get(baseURL + resource + '?populate=*');
+};
 
 const GetSingleAll = (resource:string, nameKey:string) => {
   return useQuery([nameKey], ()=> getFunction(resource))

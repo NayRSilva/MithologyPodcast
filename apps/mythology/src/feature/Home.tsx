@@ -1,6 +1,7 @@
 import Banner from "../components/Banner";
 import EmbedSpotify from "../components/EmbedSpotify";
 import { apiProvider } from "../services/api/ApiProvider";
+import { MainDiv } from "./styles/componentStyles";
 
 
   // Easiest way to declare a Function Component; return type is inferred.
@@ -8,30 +9,30 @@ import { apiProvider } from "../services/api/ApiProvider";
   const Home = () => {
 
     const{isLoading, data} = apiProvider.GetSingleAll('home', 'home-info');
-
+    
     if(isLoading){
-   
+      
       
       return(<div><h1>Is Loading </h1>
 
       </div>)
     }
     else if(data){
-    
+    console.log("é boy", data);
+      
       
       return(
 
-        <div style={exampleStyle}>
-        
-        
-            <Banner>
-                {/* <h1 style={exampleStyle}>{data.data.data.attributes.Home[0].Title}</h1> */}
-                <h2>Welcome Home</h2>
-            </Banner>
-      <EmbedSpotify url='http://open.spotify.com/episode/2n3OY4hdwQJUj7KpSWn4yX?si=3b9fcda587524a26'></EmbedSpotify>
+        <MainDiv>        
+          <Banner>
+              <img src='../assets/image/bg.png' width='100%'></img>
+              <h1 style={exampleStyle}>{data.data.data.attributes.Home[0].Title}</h1>
+              <h2>Welcome Home</h2>
+          </Banner>
+          <EmbedSpotify url='http://open.spotify.com/episode/2n3OY4hdwQJUj7KpSWn4yX?si=3b9fcda587524a26'></EmbedSpotify>
            
 
-        </div>
+        </MainDiv>
 
     )
     }
@@ -51,8 +52,10 @@ import { apiProvider } from "../services/api/ApiProvider";
   }
 
   const exampleStyle={
-    width: '100%',
-    display:'flex'
+    width: '100vw',
+    height: '100vh',
+    display:'flex',
+    backgroundColor: "#EEF2FE",
   }
 
   export default Home;
