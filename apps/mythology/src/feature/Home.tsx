@@ -1,3 +1,4 @@
+import { url } from "inspector";
 import Banner from "../components/Banner";
 import EmbedSpotify from "../components/EmbedSpotify";
 import { apiProvider } from "../services/api/ApiProvider";
@@ -25,12 +26,23 @@ import { MainDiv } from "./styles/componentStyles";
 
         <MainDiv>        
           <Banner>
-              <img src='../assets/image/bg.png' width='100%'></img>
-              <h1 style={exampleStyle}>{data.data.data.attributes.Home[0].Title}</h1>
-              <h2>Welcome Home</h2>
+            <div style={bgImgContainer}>
+              <div style={episodeContainer} >
+                <div style={episodeImg}></div>
+                <div style={episodeText}>
+                  <h1>{data.data.data.attributes.Home[0].Title}</h1>
+                  <h2>Welcome Home</h2>
+                </div>
+              </div>
+            </div>
           </Banner>
-          <EmbedSpotify url='http://open.spotify.com/episode/2n3OY4hdwQJUj7KpSWn4yX?si=3b9fcda587524a26'></EmbedSpotify>
-           
+          {/* <EmbedSpotify url='http://open.spotify.com/episode/2n3OY4hdwQJUj7KpSWn4yX?si=3b9fcda587524a26'></EmbedSpotify> */}
+          <div style={episodesList} >
+            {/* episodios */}
+          </div>
+          <div style={redesSociais} >
+            {/* redes sociais */}
+          </div>
 
         </MainDiv>
 
@@ -51,11 +63,44 @@ import { MainDiv } from "./styles/componentStyles";
 
   }
 
-  const exampleStyle={
-    width: '100vw',
-    height: '100vh',
-    display:'flex',
-    backgroundColor: "#EEF2FE",
+  const bgImgContainer={
+    backgroundImage: "url('../assets/image/bg.png')",
+    width: "100vw",
+    height: "100%",
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center' 
+  }
+
+  const episodeContainer={
+    width: '70%',
+    height: '40%',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  }
+
+  const episodeImg={
+    backgroundImage: "url('../assets/image/thumb_podcast.png')",
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    height: '100%',
+    width: '100%'
+  }
+
+  const episodeText={
+    display: 'flex',
+    flexDirection: 'column' as 'column'
+  }
+
+  const episodesList={
+    height: '200px',
+    backgroundColor: "red"
+  }
+
+  const redesSociais={
+    height: '200px',
+    backgroundColor: 'green'
   }
 
   export default Home;

@@ -8,7 +8,7 @@ export const MainDiv = styled.div`
 
 export const CommonDiv = styled.div`
     width: 100%;
-    height:200px;
+    height: 100vh;
     display:flex;
     flex-wrap: wrap;
     justify-content:center;

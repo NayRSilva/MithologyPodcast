@@ -7,8 +7,8 @@ type BannerProps = {
 export function Banner(props: BannerProps) {
     return (
       <CommonDiv>
-        
         <div >
+        
           {props.children}
         </div>
       </CommonDiv>
