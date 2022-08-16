@@ -8,7 +8,7 @@ import { apiProvider } from "../services/api/ApiProvider"
       <div style={HeaderStyle}>
         <NavLink
           to="/home">
-          <img src='../assets/img/header.png' height='100%' width='fit'/>
+          <img src='../assets/img/header.png' height='100%'/>
         </NavLink>
       </div>
     )
