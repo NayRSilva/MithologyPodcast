@@ -7,9 +7,10 @@ import { MainDiv } from "./styles/componentStyles";
 
   // Easiest way to declare a Function Component; return type is inferred.
   //little comment
+  let bgImg: string;
   const Home = () => {
 
-    const{isLoading, data} = apiProvider.GetSingleAll('home', 'home-info');
+    const{isLoading, data} = apiProvider.GetHomeWithImg();
     
     if(isLoading){
       
@@ -19,14 +20,24 @@ import { MainDiv } from "./styles/componentStyles";
       </div>)
     }
     else if(data){
-    console.log("é boy", data);
-      
+      console.log("é boy", data);
+      bgImg = data.data.data.attributes.Home[0].sectionBackground.data.attributes.url;
+      //url(${Background})
       
       return(
-
+        
         <MainDiv>        
           <Banner>
-            <div style={bgImgContainer}>
+            <div style={{
+              backgroundPosition: "center",
+              width: "100vw",
+              height: "100%",
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              backgroundImage: bgImg ? `url('${bgImg}')` : '../assets/image/bg.png'
+            }}>  
+              
               <div style={episodeContainer} >
                 <div style={episodeImg}></div>
                 <div style={episodeText}>
@@ -64,7 +75,7 @@ import { MainDiv } from "./styles/componentStyles";
   }
 
   const bgImgContainer={
-    backgroundImage: "url('../assets/image/bg.png')",
+    backgroundPosition: "center",
     width: "100vw",
     height: "100%",
     display: 'flex',
@@ -73,10 +84,10 @@ import { MainDiv } from "./styles/componentStyles";
   }
 
   const episodeContainer={
-    width: '70%',
+    width: '50%',
     height: '40%',
     display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
   }
 
@@ -84,8 +95,9 @@ import { MainDiv } from "./styles/componentStyles";
     backgroundImage: "url('../assets/image/thumb_podcast.png')",
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
-    height: '100%',
-    width: '100%'
+    backgroundPosition: 'top',
+    height: '250px',
+    width: '250px'
   }
 
   const episodeText={

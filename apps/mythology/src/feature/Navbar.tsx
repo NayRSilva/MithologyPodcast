@@ -4,16 +4,32 @@ import { apiProvider } from "../services/api/ApiProvider"
 
   // Easiest way to declare a Function Component; return type is inferred.
   const Navbar = () => {
-    return(
-      <div style={HeaderStyle}>
-        <NavLink
-          to="/home">
-          <img src='../assets/image/header.png' height='100%'/>
-        </NavLink>
-      </div>
-    )
-    return null;
-  }
+    const {isLoading, data} = apiProvider.GetLogoImage();
+    let dataImg: string;
+
+
+    if(!isLoading){
+      dataImg = data.data.data.attributes.LogoImage.data.attributes.url;
+      
+      return(
+        <div style={HeaderStyle}>
+          <NavLink
+            to="/home">
+            <img alt='logo mitologia podcast' src={dataImg ? dataImg : '../assets/image/header.png'} height='100%'/>
+          </NavLink>
+        </div>
+      )
+    }
+
+  return(
+    <div style={HeaderStyle}>
+      <NavLink
+        to="/home">
+        <img alt='logo mitologia podcast' src='../assets/image/header.png' height='100%'/>
+      </NavLink>
+    </div>
+  );
+}
 
   const HeaderStyle={
     width: '100vw',

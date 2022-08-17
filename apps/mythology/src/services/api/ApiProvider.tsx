@@ -38,12 +38,21 @@ const LogoImage= ()=>{
 }
 
 const GetLogoImage = () => {
-  return useQuery(['logoIMG'], ()=> LogoImage())
+  return useQuery(['logoImg'], ()=> LogoImage())
+}
+
+const HomeWithImg = () => {
+  return axios.get(baseURL + 'Home?populate=%2A&populate[0]=Home.sectionBackground')
+}
+
+const GetHomeWithImg = () => {
+  return useQuery(['bgImg'], ()=> HomeWithImg())
 }
 
 export const apiProvider = { 
   GetSingleAll,
   GetQueryOEmb,
   GetEpisodeWithParticipants,
-  GetLogoImage
+  GetLogoImage,
+  GetHomeWithImg
 };
