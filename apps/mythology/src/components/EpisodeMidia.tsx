@@ -102,10 +102,6 @@ export function EpisodeMidia(props: EMidiaProps) {
           {date.toLocaleDateString('pt-br', option)}
         </EpisodeInfo>
         <div style={rightButton}>
-          <a href={downloadUrl} download>
-            Download
-          </a>
-
           <ButtonGeneral onClick={() => downloadEP(downloadUrl, id)}>
             Baixar
           </ButtonGeneral>

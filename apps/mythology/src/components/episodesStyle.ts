@@ -32,11 +32,21 @@ export const ComponentEpisodeDiv = styled.div`
 export const ProfessorName = styled.h3`
       font-size: 24px;
 
-      @media(max-width: 1025px) {
-        font-size:1.2em;
+      @media(max-width: 1500px) {
+        font-size:22px;
 
       }
 
+
+      @media(max-width: 450px) {
+        font-size:18px;
+
+      }
+
+      @media(max-width: 350px) {
+        font-size:16px;
+
+      }
 `
 
 export const ProfessorCargo = styled.p`
@@ -44,9 +54,20 @@ font-family: 'FiraSansCondensed';
 
       font-size: 22px;
 
-      
       @media(max-width: 1025px) {
-        font-size: 1em;
+        font-size: 20px;
+
+      }
+      
+
+      @media(max-width: 450px) {
+        font-size:14px;
+
+      }
+
+      
+      @media(max-width: 350px) {
+        font-size:14px;
 
       }
 
