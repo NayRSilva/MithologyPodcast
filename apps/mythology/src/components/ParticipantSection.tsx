@@ -1,15 +1,6 @@
 import { useCallback, useState } from 'react';
-import ControlledSpotify from './ControlledSpotify';
-import EpisodeMidia from './EpisodeMidia';
 import ParticipantCard from './ParticipantCard';
-import {
-  BoldTitle,
-  CustomSecondTilte,
-  GridDiv,
-  LateralSliderDiv,
-  LightTitle,
-  Titles,
-} from './styles/componentStyles';
+import { CustomSecondTilte, LateralSliderDiv } from './styles/componentStyles';
 
 type ESectionProps = {
   id?: string | undefined;
@@ -18,10 +9,11 @@ type ESectionProps = {
 };
 
 export function ParticipantSection(props: ESectionProps) {
+  console.log('Parti', props.participants);
   const [width, setWidth] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
 
-  const size = 5;
+  const size = props.participants.length;
   const cardsWidth = size * cardWidth;
 
   const measuredRef = useCallback((node) => {
@@ -50,14 +42,24 @@ export function ParticipantSection(props: ESectionProps) {
         tabIndex={0}
         className={isSmallerThenContainer() ? 'center-small' : ''}
       >
-        <div ref={measuredCard}>
-          <ParticipantCard></ParticipantCard>
-        </div>
-        <ParticipantCard></ParticipantCard>
-        <ParticipantCard></ParticipantCard>
-        <ParticipantCard></ParticipantCard>
-
-        <ParticipantCard></ParticipantCard>
+        {props.participants.map((participant, i) => {
+          if (i === 0) {
+            return (
+              <div ref={measuredCard}>
+                <ParticipantCard
+                  key="participant0"
+                  participant={participant}
+                ></ParticipantCard>
+              </div>
+            );
+          }
+          return (
+            <ParticipantCard
+              key={'participant' + i}
+              participant={participant}
+            ></ParticipantCard>
+          );
+        })}
       </LateralSliderDiv>
     </section>
   );
