@@ -5,10 +5,10 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test",    
+    "test": "nx test",
     "build-strapi": "cd apps/api && yarn build",
-    "heroku-postbuild":"yarn ${BUILD_SCRIPT:-build-strapi}",
-    "start-strapi":"cd apps/api && yarn start"
+    "heroku-postbuild": "yarn ${BUILD_SCRIPT:-build-strapi}",
+    "start-strapi": "cd apps/api && yarn start"
   },
   "engines": {
     "node": "16.15.1",
@@ -16,8 +16,11 @@
   },
   "private": true,
   "dependencies": {
+    "aws-sdk": "^2.1195.0",
     "axios": "^0.27.2",
     "core-js": "^3.6.5",
+    "html-react-parser": "^3.0.1",
+    "markdown-to-jsx": "^7.1.7",
     "pg": "^8.7.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
