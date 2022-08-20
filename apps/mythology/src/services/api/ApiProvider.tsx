@@ -4,38 +4,61 @@ import { useQuery } from 'react-query';
 // const baseURL = 'http://localhost:1337/api/'
 let baseURL = process.env.NX_BASE_API_URL as string;
 
-const getFunction = (resource: string) => {
+const useDefineUrl = () => {
   if (!baseURL) baseURL = 'https://api.mitologianodiaadia.com.br/api/';
+};
+
+const getUrl = (url: string) => {
+  return axios.get(url);
+};
+
+const getFunction = (resource: string) => {
   console.log('NAHA', baseURL);
-  return axios.get(baseURL + resource + '?populate=*');
+  const url = baseURL + resource + '?populate=*';
+
+  return getUrl(url);
 };
 
 const GetSingleAll = (resource: string, nameKey: string) => {
   return useQuery([nameKey], () => getFunction(resource));
 };
 const getEpisodesParticipants = () => {
-  if (!baseURL) baseURL = 'https://api.mitologianodiaadia.com.br/api/';
-
-  return axios.get(
+  const url =
     baseURL +
-      'episodes?populate=%2A&populate[0]=Participante&populate[1]=Participante.imagem'
-  );
+    'episodes?populate=%2A&populate[0]=Participante&populate[1]=Participante.imagem';
+  return getUrl(url);
 };
 const getEpisode = (id: string | undefined) => {
-  if (!baseURL) baseURL = 'https://api.mitologianodiaadia.com.br/api/';
-
-  return axios.get(baseURL + 'episodes/' + id + '?populate=%2A');
+  const url = baseURL + 'episodes/' + id + '?populate=%2A';
+  return getUrl(url);
 };
 
 const useQueryEpisode = (name: string, id: string | undefined) => {
   return useQuery([name], () => getEpisode(id));
+};
+
+const getEpisodeWithParticipants = (id: string | undefined) => {
+  const url =
+    baseURL +
+    'episodes/' +
+    id +
+    '?populate=%2A&populate[0]=audio&populate[1]=Participante.imagem';
+  return getUrl(url);
+};
+
+const useQueryEpisodeWithParticipants = (
+  name: string,
+  id: string | undefined
+) => {
+  return useQuery([name], () => getEpisodeWithParticipants(id));
 };
 const GetEpisodesWithParticipants = () => {
   return useQuery(['episodes'], () => getEpisodesParticipants());
 };
 
 const getEmbed = (url: string) => {
-  return axios.get('https://open.spotify.com/oembed?url=' + url);
+  const myurl = 'https://open.spotify.com/oembed?url=' + url;
+  return getUrl(myurl);
 };
 
 const GetQueryOEmb = (url: string) => {
@@ -47,4 +70,6 @@ export const apiProvider = {
   GetQueryOEmb,
   GetEpisodesWithParticipants,
   useQueryEpisode,
+  useDefineUrl,
+  useQueryEpisodeWithParticipants,
 };
