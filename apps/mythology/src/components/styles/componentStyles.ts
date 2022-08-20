@@ -34,6 +34,30 @@ export const ParticipantContainer= styled.div`
       }
 
 `
+
+export const ParticipantPhoto = styled.img`
+    width: 150px;
+    height:150px;
+    margin: 10% 10%;
+    border-radius: 50%;
+    flex-shrink:0;
+
+    @media(max-width: 800px) {
+      width: 100px;
+      height:100px;
+      margin: 15px 45px;
+
+    }
+
+    
+    @media(max-width: 400px) {
+      width: 90px;
+      height:90px;
+      margin: 15px 30px;
+
+    }
+
+`
 export const RedBox = styled.div`
     height: 50px;
     width: 100%;
@@ -237,7 +261,7 @@ export const TranscriptionBox = styled.div`
     margin-bottom:5%;
 
     &:focus{
-        border: 2px solid black;
+        border: 2px solid #ce4224;
     }
 
     @media(max-width: 1500px) {
@@ -275,16 +299,9 @@ export const LateralSliderDiv = styled.div`
     padding: 2% 0;
 
     &:focus{
-        border: 2px solid black;
+        border: 2px solid #ce4224;
     }
 
  
 `
 
-export const ParticipantPhoto = styled.img`
-    width: 80%;
-    margin: 10% 10%;
-    border-radius: 50%;
-    flex-shrink:0;
-
-`
