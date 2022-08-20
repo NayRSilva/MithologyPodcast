@@ -9,8 +9,9 @@ export const ButtonGeneral= styled.button`
     width: 10vw;
     padding: 10px 0px;
     border-radius:10px;
+    cursor: pointer;
     &:focus{
-        border: 2px solid black;
+        border: 2px solid #ce4224;
     }
 
 
@@ -31,6 +32,7 @@ export const ComponentEpisodeDiv = styled.div`
 
 export const ProfessorName = styled.h3`
       font-size: 24px;
+      text-transform: capitalize;
 
       @media(max-width: 1500px) {
         font-size:22px;
@@ -51,6 +53,8 @@ export const ProfessorName = styled.h3`
 
 export const ProfessorCargo = styled.p`
 font-family: 'FiraSansCondensed';
+text-transform: capitalize;
+
 
       font-size: 22px;
 
