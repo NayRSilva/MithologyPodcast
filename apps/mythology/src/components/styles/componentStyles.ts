@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const MainDiv = styled.div`
@@ -15,7 +16,7 @@ export const CommonDiv = styled.div`
 
     
 `
-export const ParticipantContainer= styled.div`
+export const ParticipantContainer = styled.div`
     flex-direction: column;
     display:flex;
     text-align:center;
@@ -33,6 +34,7 @@ export const ParticipantContainer= styled.div`
       }
 
 `
+
 
 export const ParticipantPhoto = styled.img`
     width: 150px;
@@ -106,8 +108,7 @@ export const ColumnDiv = styled.div`
       }
 
 `
-
-export const LightTitle= styled.h3`
+export const LightTitle = styled.h3`
     font-family: 'FiraSansCondensed';
     font-size: 25px;
 
@@ -126,7 +127,39 @@ export const LightTitle= styled.h3`
 
 
 `
-export const BoldTitle= styled.h1`
+
+export const FloatTitle = styled.h1`
+	font-family: 'FiraSansBold';
+	font-size: 45px;
+	letter-spacing: -2px;
+	  margin-top: -30px;
+	  margin-bottom: 30px;
+
+  
+  @media(max-width: 1500px) {
+    font-size: 30px;
+
+  }
+
+@media(max-width: 1025px) {
+    font-size: 1.8em;
+
+  }
+
+  @media(max-width: 800px) {
+    font-size: 22px;
+
+  }
+
+  
+  @media(max-width: 350px) {
+    font-size: 20px;
+
+  }
+
+
+`
+export const BoldTitle = styled.h1`
     font-family: 'FiraSansBold';
     font-size: 32px;
     letter-spacing: -2px;
@@ -153,11 +186,11 @@ export const BoldTitle= styled.h1`
       }
 
 `
-export const Titles= styled.div`
+export const Titles = styled.div`
     margin-bottom:5%;
     `
 
-export const EpisodeInfo= styled.p`
+export const EpisodeInfo = styled.p`
     font-family: 'FiraSansCondensed';
     font-size:22px;
     margin:2vh 0;
@@ -180,7 +213,7 @@ export const EpisodeInfo= styled.p`
 
 `
 
-export const EpisodeSummary= styled.div`
+export const EpisodeSummary = styled.div`
     font-family: 'FiraSans';
     font-size:20px;
     letter-spacing: -2px;
@@ -258,6 +291,7 @@ export const TranscriptionBox = styled.div`
     font-size:20px;
     height: 200px;
     margin-bottom:5%;
+    word-wrap: break-word;
 
     &:focus{
         border: 2px solid #ce4224;
@@ -304,3 +338,90 @@ export const LateralSliderDiv = styled.div`
  
 `
 
+
+export const SocialImg = styled.img`
+    width: 100px;
+    height: 100px;
+    border-radius:50%;
+    margin: 0 15px;
+
+`
+export const EpisodeCardDiv = styled.div`
+	width: 300px;
+	min-height: 350px;
+	background:#D9D9D9;
+  padding: 20px 0  30px 0;
+  border-radius:15px;
+  margin: 0 15px;
+
+  @media(max-width: 1025px) {
+    width:250px;
+    min-height: 300px;
+
+  }
+`
+
+export const UndersCoreEpLink = styled(Link)`
+
+    font-family: 'FiraSansCondensed';
+    display:block;
+
+    font-size: 25px;
+    text-decoration: underline,
+    text-underline-offset: 10px,
+    color: #E45C3F;
+
+    &:visited{
+      color: #ce4224;
+    }
+
+    @media(max-width: 450px) {
+        font-size: 18px; 
+
+
+      }
+
+      @media(max-width: 350px) {
+        font-size: 16px; 
+
+
+      }
+
+`
+
+
+export const BolderEpLink = styled(Link)`
+
+    font-family: 'FiraSansBold';
+    display:block;
+    text-decoration:none;
+  
+    font-size: 32px;
+    letter-spacing: -2px;
+    color: #E45C3F;
+    margin-top: 20%;
+    margin-bottom: 5%;
+
+
+    @media(max-width: 1500px) {
+        font-size: 30px;
+
+      }
+
+    @media(max-width: 1025px) {
+        font-size: 1.8em;
+
+      }
+
+      @media(max-width: 800px) {
+        font-size: 22px;
+
+      }
+
+      
+      @media(max-width: 350px) {
+        font-size: 20px;
+
+      }
+
+` 
