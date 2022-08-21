@@ -1,6 +1,6 @@
-import { url } from 'inspector';
 import Banner from '../components/Banner';
-import EmbedSpotify from '../components/EmbedSpotify';
+import ListEpisodeSection from '../components/ListEpisodeSection';
+import { BoldTitle, SocialImg } from '../components/styles/componentStyles';
 import { apiProvider } from '../services/api/ApiProvider';
 import { MainDiv } from './styles/componentStyles';
 
@@ -9,7 +9,7 @@ import { MainDiv } from './styles/componentStyles';
 let bgImg: string;
 const Home = () => {
   const { isLoading, data } = apiProvider.GetHomeWithImg();
-
+  const episodeList = apiProvider.useGetEpisodeList();
   if (isLoading) {
     return (
       <div>
@@ -18,21 +18,36 @@ const Home = () => {
     );
   } else if (data) {
     console.log('é boy', data);
+    const home = data.data.data.attributes.Home[0];
     bgImg =
       data.data.data.attributes.Home[0].sectionBackground.data.attributes.url;
     //url(${Background})
+    const basehttp = 'https://'
+    const fbUrl = basehttp+home.facebookUrl;
+    const ttUrl = basehttp+home.tiktokUrl;
+    const igUrl = basehttp+home.instagramUrl;
+    const ytUrl = basehttp+home.youtubeUrl;
+
+
+
+    let episodes = [];
+
+    if (!episodeList.isLoading) episodes = episodeList.data.data.data;
 
     return (
       <MainDiv>
         <Banner>
           <div
             style={{
-              backgroundPosition: 'center',
               width: '100vw',
               height: '100%',
               display: 'flex',
               justifyContent: 'flex-start',
               alignItems: 'center',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+
               backgroundImage: bgImg
                 ? `url('${bgImg}')`
                 : '../assets/image/bg.png',
@@ -47,16 +62,41 @@ const Home = () => {
             </div>
           </div>
         </Banner>
-        {/* <EmbedSpotify url='http://open.spotify.com/episode/2n3OY4hdwQJUj7KpSWn4yX?si=3b9fcda587524a26'></EmbedSpotify> */}
-        <div style={episodesList}>{/* episodios */}</div>
-        <div style={redesSociais}>{/* redes sociais */}</div>
+        
+        <ListEpisodeSection episodeList={episodes}></ListEpisodeSection>
+        
+        <section style={redesSociais}>
+          {/* redes sociais */}
+          <BoldTitle>Acompanhe nosso trabalho nas redes sociais</BoldTitle>
+          <div style={socialCollection}>
+            
+            <a href={ttUrl}>
+              {/* <SocialMedia src="../assets/image/"></SocialMedia> */}
+              <SocialImg src="../assets/image/icon_tiktok.png"></SocialImg>
+            </a>
+            <a href={ytUrl}>
+
+              <SocialImg src="../assets/image/icon_youtube.png"></SocialImg>
+              </a>
+            <a href={fbUrl}>
+
+              <SocialImg src="../assets/image/icon_facebook.png"></SocialImg>
+              </a>
+            <a href={igUrl}>
+              
+              <SocialImg src="../assets/image/icon_instagram.png"></SocialImg>
+              </a>
+
+
+
+          </div>
+        </section>
       </MainDiv>
     );
   } else {
     return (
       <div>
         <h1>Hmmm</h1>
-        <EmbedSpotify url="http://open.spotify.com/episode/2n3OY4hdwQJUj7KpSWn4yX?si=3b9fcda587524a26"></EmbedSpotify>
       </div>
     );
   }
@@ -79,6 +119,11 @@ const episodeContainer = {
   alignItems: 'center',
 };
 
+const socialCollection ={
+  display:'flex',
+  justifyContent: 'center',
+  margin:'30px 0px'
+}
 const episodeImg = {
   backgroundImage: "url('../assets/image/thumb_podcast.png')",
   backgroundSize: 'contain',
@@ -93,14 +138,13 @@ const episodeText = {
   flexDirection: 'column' as 'column',
 };
 
-const episodesList = {
-  height: '200px',
-  backgroundColor: 'red',
-};
-
 const redesSociais = {
+  display: 'flex',
+  justifyContent: 'center',
+  textAlign: 'center' as 'center',
+  flexDirection: 'column' as 'column',
+
   height: '200px',
-  backgroundColor: 'green',
 };
 
 export default Home;

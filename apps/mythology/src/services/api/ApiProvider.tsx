@@ -46,6 +46,11 @@ const getEpisodeWithParticipants = (id: string | undefined) => {
   return getUrl(url);
 };
 
+const getEpisodeList = () => {
+  const url = baseURL + 'episodes';
+  return getUrl(url);
+};
+
 const useQueryEpisodeWithParticipants = (
   name: string,
   id: string | undefined
@@ -85,6 +90,9 @@ const GetHomeWithImg = () => {
   return useQuery(['bgImg'], () => HomeWithImg());
 };
 
+const useGetEpisodeList = () => {
+  return useQuery(['episodeList'], () => getEpisodeList());
+};
 export const apiProvider = {
   GetSingleAll,
   GetQueryOEmb,
@@ -94,4 +102,5 @@ export const apiProvider = {
   useQueryEpisodeWithParticipants,
   useGetLogoImage,
   GetHomeWithImg,
+  useGetEpisodeList,
 };
