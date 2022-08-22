@@ -1,19 +1,18 @@
 import { useCallback, useState } from 'react';
-import ParticipantCard from './ParticipantCard';
-import { CustomSecondTilte, LateralSliderDiv } from './styles/componentStyles';
+import EpisodeCard from './EpisodeCard';
 
-type ESectionProps = {
-  id?: string | undefined;
+import { LateralSliderDiv } from './styles/componentStyles';
+type SliderEpisodeProps = {
   children?: JSX.Element[] | JSX.Element;
-  participants: Array<any | undefined>;
+  episodes?: any;
 };
 
-export function ParticipantSection(props: ESectionProps) {
-  console.log('Parti', props.participants);
+export function SliderEpisode(props: SliderEpisodeProps) {
+  let episodeSize = props.episodes.length + 1;
   const [width, setWidth] = useState(0);
-  const [cardWidth, setCardWidth] = useState(0);
 
-  const size = props.participants.length;
+  const [cardWidth, setCardWidth] = useState(0);
+  const size = props.episodes.length;
   const cardsWidth = size * cardWidth;
 
   const measuredRef = useCallback((node) => {
@@ -22,11 +21,13 @@ export function ParticipantSection(props: ESectionProps) {
     }
   }, []);
 
+
   const measuredCard = useCallback((node) => {
     if (node !== null) {
       setCardWidth(node.getBoundingClientRect().width);
     }
   }, []);
+
   const isSmallerThenContainer = () => {
     if (cardsWidth < width) {
       console.log('smaller ', width);
@@ -35,34 +36,36 @@ export function ParticipantSection(props: ESectionProps) {
     console.log('noy small', width, cardsWidth, cardWidth);
     return false;
   };
+
   return (
-    <section ref={measuredRef}>
-      <CustomSecondTilte>Participantes:</CustomSecondTilte>
+    <div style={sliderDiv} ref={measuredRef}>
+
+
       <LateralSliderDiv
         tabIndex={0}
         className={isSmallerThenContainer() ? 'center-small' : ''}
       >
-        {props.participants.map((participant, i) => {
-          if (i === 0) {
+        {props.episodes.map((e, i) => {
+          episodeSize--;
+          if(i===0){
             return (
               <div ref={measuredCard}>
-                <ParticipantCard
-                  key="participant0"
-                  participant={participant}
-                ></ParticipantCard>
+                <EpisodeCard episode={e} id={episodeSize.toString()}></EpisodeCard>
               </div>
             );
           }
           return (
-            <ParticipantCard
-              key={'participant' + i}
-              participant={participant}
-            ></ParticipantCard>
+            <EpisodeCard episode={e} id={episodeSize.toString()}></EpisodeCard>
           );
         })}
       </LateralSliderDiv>
-    </section>
+    </div>
   );
 }
 
-export default ParticipantSection;
+export default SliderEpisode;
+
+const sliderDiv = {
+  width: '80%',
+  margin: '5% 10%',
+};

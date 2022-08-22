@@ -1,47 +1,106 @@
+import axios from 'axios';
+import { useQuery } from 'react-query';
 
-import axios from 'axios'; 
-import {useQuery} from 'react-query'
+// const baseURL = 'http://localhost:1337/api/'
+let baseURL = process.env.NX_BASE_API_URL as string;
 
+const useDefineUrl = () => {
+  if (!baseURL) baseURL = 'https://api.mitologianodiaadia.com.br/api/';
+};
 
-const baseURL = 'api.mitologianodiaadia.com.br/api/'
+const getUrl = (url: string) => {
+  return axios.get(url);
+};
 
-const getFunction = (resource:string)=>{
-    return axios.get(baseURL+ resource+'?populate=*')
-  }
+const getFunction = (resource: string) => {
+  console.log('NAHA', baseURL);
+  const url = baseURL + resource + '?populate=*';
 
-const GetSingleAll = (resource:string, nameKey:string) => {
-  return useQuery([nameKey], ()=> getFunction(resource))
-}
+  return getUrl(url);
+};
 
-const getEpisodesParticipants = ()=>{
-  return axios.get(baseURL+ 'episodes?populate=%2A&populate[0]=Participante&populate[1]=Participante.imagem')
-}
+const GetSingleAll = (resource: string, nameKey: string) => {
+  return useQuery([nameKey], () => getFunction(resource));
+};
+const getEpisodesParticipants = () => {
+  const url =
+    baseURL +
+    'episodes?populate=%2A&populate[0]=Participante&populate[1]=Participante.imagem';
+  return getUrl(url);
+};
+const getEpisode = (id: string | undefined) => {
+  const url = baseURL + 'episodes/' + id + '?populate=%2A';
+  return getUrl(url);
+};
 
-const GetEpisodeWithParticipants=()=>{
-  return useQuery(['episodes'], ()=> getEpisodesParticipants())
-}
+const useQueryEpisode = (name: string, id: string | undefined) => {
+  return useQuery([name], () => getEpisode(id));
+};
 
-const getEmbed= (url:string)=>{
-  return axios.get('https://open.spotify.com/oembed?url='+url)
-}
+const getEpisodeWithParticipants = (id: string | undefined) => {
+  const url =
+    baseURL +
+    'episodes/' +
+    id +
+    '?populate=%2A&populate[0]=audio&populate[1]=Participante.imagem';
+  return getUrl(url);
+};
 
-const GetQueryOEmb= (url:string)=>{
-  return useQuery(['episodes'], ()=> getEmbed(url))
-}
+const getEpisodeList = () => {
+  const url = baseURL + 'episodes';
+  return getUrl(url);
+};
 
-const baseURLalt = 'api.mitologianodiaadia.com.br/api/';
+const useQueryEpisodeWithParticipants = (
+  name: string,
+  id: string | undefined
+) => {
+  return useQuery([name], () => getEpisodeWithParticipants(id));
+};
 
-const LogoImage= ()=>{
-  return axios.get(baseURL + 'Logo?populate=%2A')
-}
+const GetEpisodesWithParticipants = () => {
+  return useQuery(['episodes'], () => getEpisodesParticipants());
+};
 
-const GetLogoImage = () => {
-  return useQuery(['logoIMG'], ()=> LogoImage())
-}
+const getEmbed = (url: string) => {
+  const myurl = 'https://open.spotify.com/oembed?url=' + url;
+  return getUrl(myurl);
+};
 
-export const apiProvider = { 
+const GetQueryOEmb = (url: string) => {
+  return useQuery(['episodes'], () => getEmbed(url));
+};
+
+const LogoImage = () => {
+  const url = baseURL + 'Logo?populate=%2A';
+  return getUrl(url);
+};
+
+const useGetLogoImage = () => {
+  return useQuery(['logoImg'], () => LogoImage());
+};
+
+const HomeWithImg = () => {
+  return axios.get(
+    baseURL + 'Home?populate=%2A&populate[0]=Home.sectionBackground'
+  );
+};
+
+const GetHomeWithImg = () => {
+  return useQuery(['bgImg'], () => HomeWithImg());
+};
+
+const useGetEpisodeList = () => {
+  return useQuery(['episodeList'], () => getEpisodeList());
+};
+export const apiProvider = {
   GetSingleAll,
   GetQueryOEmb,
-  GetEpisodeWithParticipants,
-  GetLogoImage
+  GetEpisodesWithParticipants,
+  useQueryEpisode,
+  useDefineUrl,
+  useQueryEpisodeWithParticipants,
+  useGetLogoImage,
+  GetHomeWithImg,
+  useGetEpisodeList,
 };
