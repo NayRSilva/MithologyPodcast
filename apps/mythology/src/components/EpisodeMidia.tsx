@@ -1,48 +1,74 @@
-import ControlledSpotify from "./ControlledSpotify";
-import EmbedSpotify from "./EmbedSpotify";
-import { BoldTitle, ComponentDiv, EpisodeInfo, GridDiv, LightTitle, Titles} from "./styles/componentStyles";
-import {ButtonGeneral, ComponentEpisodeDiv} from "./episodesStyle";
-import YoutubeEmbed from "./YoutubeEmbed";
+import ControlledSpotify from './ControlledSpotify';
+import { EpisodeInfo } from './styles/componentStyles';
+import { ComponentEpisodeDiv } from './episodesStyle';
+import YoutubeEmbed from './YoutubeEmbed';
+import { EpisodeAttributes } from './model/episodeAttributes';
+import ButtonDownload from './ButtonDownload';
+
+type Episode = {
+  id: string;
+  attributes: EpisodeAttributes;
+};
 
 type EMidiaProps = {
-    id: string|undefined;
-    children?: JSX.Element[] | JSX.Element;
-    episode?:any|undefined;
-}
+  id: string | undefined;
+  children?: JSX.Element[] | JSX.Element;
+  episode: Episode | undefined;
+};
+const getYoutubeId = (url: string) => {
+  const index = url.lastIndexOf('/');
+
+  return url.substring(index + 1);
+};
+
 export function EpisodeMidia(props: EMidiaProps) {
-    return (
-      <>
+  //string to avoid undefined
+  let urlSpotify = '';
+  let urlYoutube = '';
+  let downloadUrl = '';
+  let id = '';
+  id = id + props.id;
+  urlYoutube = urlYoutube + props.episode?.attributes.youtube;
+  urlSpotify = urlSpotify + props.episode?.attributes.spotify;
+  downloadUrl =
+    downloadUrl + props.episode?.attributes.audio.data.attributes.url;
+  //defining consts
+  const ytId = getYoutubeId(urlYoutube);
+  const date = new Date(props.episode?.attributes.createdAt);
+  const option = {
+    day: '2-digit',
+    year: 'numeric',
+
+    month: 'long',
+  } as const;
+
+  return (
+    <>
       <EpisodeInfo>Escute via Youtube ou Spotify</EpisodeInfo>
 
-        <YoutubeEmbed embedId="upUoEh6EA-Y"></YoutubeEmbed>      
-        <ControlledSpotify url={"https://open.spotify.com/episode/57VCq44UEL9OPDmdvz4fte?si=0d39385dddec4216"}></ControlledSpotify>
-        <ComponentEpisodeDiv>
-        <EpisodeInfo style={leftInfo}>28 de Agosto</EpisodeInfo>
+      <YoutubeEmbed embedId={ytId}></YoutubeEmbed>
+      <ControlledSpotify url={urlSpotify}></ControlledSpotify>
+      <ComponentEpisodeDiv>
+        <EpisodeInfo style={leftInfo}>
+          {date.toLocaleDateString('pt-br', option)}
+        </EpisodeInfo>
         <div style={rightButton}>
-        <ButtonGeneral >Baixar</ButtonGeneral>
+          <ButtonDownload downloadUrl={downloadUrl} idEp={id} />
         </div>
+      </ComponentEpisodeDiv>
+    </>
+  );
+}
 
+const leftInfo = {
+  width: '40%',
+};
 
-        </ComponentEpisodeDiv>
+const rightButton = {
+  width: '60%',
+  display: 'flex',
+  marginLeft: '10%',
+  justifyContent: 'flex-end',
+};
 
-        
-
-      </>
-    );
-  }
-
-  const leftInfo={
-    width: '40%',
-
-  }
-
-  const rightButton={
-    width: '60%',
-    display:'flex',
-    marginLeft:'10%',
-    justifyContent:'flex-end'
-  }
-
-  
-  export default EpisodeMidia;
-  
+export default EpisodeMidia;

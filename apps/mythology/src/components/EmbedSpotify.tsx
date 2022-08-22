@@ -1,34 +1,22 @@
-import { apiProvider } from "../services/api/ApiProvider";
+import { apiProvider } from '../services/api/ApiProvider';
 
 type SpotifyProps = {
-    url: string;
-}
+  url: string;
+};
 
-export function EmbedSpotify(props:SpotifyProps) {
-    const episodeUrl = props.url
-    const{isLoading, data}  = apiProvider.GetQueryOEmb(episodeUrl)
-    console.log("nay",data)
-  
-    let dataEmb:any = null;
+export function EmbedSpotify(props: SpotifyProps) {
+  const episodeUrl = props.url;
+  const { isLoading, data } = apiProvider.GetQueryOEmb(episodeUrl);
 
-    if(isLoading){
-        console.log("LOOOOD")
-        return(<h1>Loading HERE</h1>)
-    }
-    else{
-        dataEmb = data.data
+  let dataEmb: any = null;
 
-        console.log("Loaded", data)
+  if (isLoading) {
+    return <h1>Loading HERE</h1>;
+  } else {
+    dataEmb = data.data;
 
-    return (
-
-        <div
-            dangerouslySetInnerHTML={{__html: dataEmb.html}}
-        />
-    );
-}
+    return <div dangerouslySetInnerHTML={{ __html: dataEmb.html }} />;
   }
+}
 
-   
-  export default EmbedSpotify;
-  
+export default EmbedSpotify;

@@ -1,40 +1,52 @@
-import { url } from "inspector";
-import { NavLink } from "react-router-dom";
+import { url } from 'inspector';
+import { NavLink } from 'react-router-dom';
+import { apiProvider } from '../services/api/ApiProvider';
 
-  // Easiest way to declare a Function Component; return type is inferred.
-  const Navbar = () => {
+// Easiest way to declare a Function Component; return type is inferred.
+const Navbar = () => {
+  const { isLoading, data } = apiProvider.useGetLogoImage();
+  let dataImg: string;
 
-    return(
-        <div style={HeaderStyle}>
-          <NavLink style={HeaderLinkStyle}
-            to="/home">
-            <div style={ImgHeaderStyle}/>
-          </NavLink>
-        </div>
-    )
+  if (!isLoading) {
+    dataImg = data.data.data.attributes.LogoImage.data.attributes.url;
+
+    return (
+      <div style={HeaderStyle}>
+        <NavLink to="/home">
+          <img
+            alt="logo mitologia podcast"
+            src={dataImg ? dataImg : '../assets/image/header.png'}
+            height="100%"
+          />
+        </NavLink>
+      </div>
+    );
   }
 
-  const HeaderStyle={
-    width: '100vw',
-    height: '13vh',
-    backgroundColor: '#E45C3F',
-    display:'flex',
-    justifyContent: 'center',
-    alignItens: 'stretch'
-  }
-  
-  const HeaderLinkStyle = {
-    width: '20%',
-    height: '90%'
-  }
+  return (
+    <div style={HeaderStyle}>
+      <NavLink to="/home">
+        <img
+          alt="logo mitologia podcast"
+          src="../assets/image/header.png"
+          height="100%"
+        />
+      </NavLink>
+    </div>
+  );
+};
 
-  const ImgHeaderStyle = {
-    backgroundImage: 'url("https://www.teclasap.com.br/wp-content/uploads/2014/11/banner.png")',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
-    width: '100%',
-    height: '100%'
-  }
+const HeaderStyle = {
+  width: '100%',
+  height: '13vh',
+  backgroundColor: '#E45C3F',
+  display: 'flex',
+  justifyContent: 'center',
+};
 
-  export default Navbar;
+const ImgHeaderStyle = {
+  width: '100%',
+  height: '100%',
+};
 
+export default Navbar;
