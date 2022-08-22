@@ -1,6 +1,6 @@
 import Banner from '../components/Banner';
 import ListEpisodeSection from '../components/ListEpisodeSection';
-import { BoldTitle, SocialImg } from '../components/styles/componentStyles';
+import { BoldTitle, SocialImg, SocialCollection } from '../components/styles/componentStyles';
 import { apiProvider } from '../services/api/ApiProvider';
 import { MainDiv } from './styles/componentStyles';
 
@@ -68,7 +68,7 @@ const Home = () => {
         <section style={redesSociais}>
           {/* redes sociais */}
           <BoldTitle>Acompanhe nosso trabalho nas redes sociais</BoldTitle>
-          <div style={socialCollection}>
+          <SocialCollection>
             
             <a href={ttUrl}>
               {/* <SocialMedia src="../assets/image/"></SocialMedia> */}
@@ -89,7 +89,7 @@ const Home = () => {
 
 
 
-          </div>
+          </SocialCollection>
         </section>
       </MainDiv>
     );
@@ -122,7 +122,8 @@ const episodeContainer = {
 const socialCollection ={
   display:'flex',
   justifyContent: 'center',
-  margin:'30px 0px'
+  margin:'30px 0px',
+
 }
 const episodeImg = {
   backgroundImage: "url('../assets/image/thumb_podcast.png')",

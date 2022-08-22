@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const MainDiv = styled.div`
     min-height:100vh;
     display:flex;
+    width:100%;
 
 `
 
@@ -15,6 +16,21 @@ export const CommonDiv = styled.div`
     justify-content:center;
 
     
+`
+
+export const SocialCollection = styled.div`
+  margin-top: 15px
+
+  display:flex;
+  justify-content: center;
+  margin:30px 0px;
+
+  @media(max-width: 400px) {
+    width:100px;
+    flex-wrap: wrap;
+
+  }
+
 `
 export const ParticipantContainer = styled.div`
     flex-direction: column;
@@ -345,6 +361,11 @@ export const SocialImg = styled.img`
     border-radius:50%;
     margin: 0 15px;
 
+    @media(max-width: 800px) {
+      width: 50px;
+      height: 50px;
+  
+    }
 `
 export const EpisodeCardDiv = styled.div`
 	width: 300px;
@@ -359,6 +380,8 @@ export const EpisodeCardDiv = styled.div`
     min-height: 300px;
 
   }
+
+
 `
 
 export const UndersCoreEpLink = styled(Link)`
