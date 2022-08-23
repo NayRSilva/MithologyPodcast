@@ -109,3 +109,24 @@ p {
   width: 100%;
   position: absolute;
 }
+
+/*episode styles*/
+
+.EpImg {
+  background-image: url('./assets/image/thumb_podcast.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 250px;
+  width: 250px;
+}
+
+@media (max-width: 500px) {
+  .EpImg {
+    width: 100%;
+  }
+
+  .bannerSize {
+    background-position: 76% !important;
+  }
+}
