@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import epImg from '../../assets/image/thumb_podcast.png';
 
 export const MainDiv = styled.div`
     min-height:100vh;
@@ -163,13 +164,13 @@ export const FloatTitle = styled.h1`
   }
 
   @media(max-width: 800px) {
-    font-size: 22px;
+    font-size: 25px;
 
   }
 
   
   @media(max-width: 350px) {
-    font-size: 20px;
+    font-size: 25px;
 
   }
 
@@ -361,6 +362,7 @@ export const SocialImg = styled.img`
     border-radius:50%;
     margin: 0 15px;
 
+
     @media(max-width: 800px) {
       width: 50px;
       height: 50px;
@@ -447,4 +449,33 @@ export const BolderEpLink = styled(Link)`
 
       }
 
-` 
+`
+export const EpisodeContainer = styled.div`
+
+
+      width: 50%;
+      height: 40%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      @media(max-width: 500px) {
+        flex-direction:column-reverse;
+        width:85%;
+
+      }
+  
+
+
+
+`
+
+export const EpisodeImg = styled.div`
+
+    background-image: url(${epImg}),
+    background-size: contain,
+    background-repeat: no-repeat,
+    background-position: top,
+    height: 250px,
+    width: 250px,
+`

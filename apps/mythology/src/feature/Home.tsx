@@ -1,6 +1,6 @@
 import Banner from '../components/Banner';
 import ListEpisodeSection from '../components/ListEpisodeSection';
-import { BoldTitle, SocialImg, SocialCollection } from '../components/styles/componentStyles';
+import { BoldTitle, SocialImg, SocialCollection, EpisodeContainer, LightTitle } from '../components/styles/componentStyles';
 import { apiProvider } from '../services/api/ApiProvider';
 import { MainDiv } from './styles/componentStyles';
 
@@ -36,32 +36,33 @@ const Home = () => {
 
     return (
       <MainDiv>
-        <Banner>
-          <div
+        {/* <Banner> */}
+          <section
             style={{
-              width: '100vw',
-              height: '100%',
+              width: '100%',
+              height: '100vh',
               display: 'flex',
               justifyContent: 'flex-start',
               alignItems: 'center',
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
-
+              
               backgroundImage: bgImg
                 ? `url('${bgImg}')`
                 : '../assets/image/bg.png',
             }}
+            className='bannerSize'
           >
-            <div style={episodeContainer}>
-              <div style={episodeImg}></div>
+            <EpisodeContainer>
+              <div className='EpImg'></div>
               <div style={episodeText}>
-                <h1>{data.data.data.attributes.Home[0].Title}</h1>
+                <LightTitle>{data.data.data.attributes.Home[0].Title}</LightTitle>
                 <h2>Welcome Home</h2>
               </div>
-            </div>
-          </div>
-        </Banner>
+            </EpisodeContainer>
+          </section>
+        {/* </Banner> */}
         
         <ListEpisodeSection episodeList={episodes}></ListEpisodeSection>
         
@@ -117,6 +118,8 @@ const episodeContainer = {
   display: 'flex',
   justifyContent: 'space-evenly',
   alignItems: 'center',
+
+  
 };
 
 const socialCollection ={
@@ -137,6 +140,7 @@ const episodeImg = {
 const episodeText = {
   display: 'flex',
   flexDirection: 'column' as 'column',
+  width:'50%',
 };
 
 const redesSociais = {
