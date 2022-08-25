@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ButtonGeneral= styled.button`
+export const ButtonGeneral = styled.button`
     font-family: 'FiraSansCondensed';
     background-color:#E45C3F;
     color:#FCE4E4;
@@ -10,10 +10,13 @@ export const ButtonGeneral= styled.button`
     padding: 10px 0px;
     border-radius:10px;
     cursor: pointer;
+    transition-duration: 0.6s;
     &:focus{
         border: 2px solid #ce4224;
     }
-
+    &:hover{
+      background-color:#2cd5dc;
+    }
 
     @media(max-width: 800px) {
         width:40vw;

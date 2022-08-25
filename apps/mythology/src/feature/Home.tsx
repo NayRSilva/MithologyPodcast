@@ -1,6 +1,6 @@
 import Banner from '../components/Banner';
 import ListEpisodeSection from '../components/ListEpisodeSection';
-import { BoldTitle, SocialImg, SocialCollection } from '../components/styles/componentStyles';
+import { BoldTitle, SocialImg, SocialCollection, EpisodeContainer, LightTitle } from '../components/styles/componentStyles';
 import { apiProvider } from '../services/api/ApiProvider';
 import { MainDiv } from './styles/componentStyles';
 
@@ -31,41 +31,61 @@ const Home = () => {
 
 
     let episodes = [];
-
-    if (!episodeList.isLoading) episodes = episodeList.data.data.data;
+    let lastEpisode, episodesLength;
+    if (!episodeList.isLoading) {
+      episodes = episodeList.data.data.data;
+      episodesLength = episodes.length;
+      lastEpisode = episodes[(episodesLength)-1];
+      console.log("teste aq",  lastEpisode)
+    }
 
     return (
       <MainDiv>
-        <Banner>
-          <div
+        {/* <Banner> */}
+          <section
             style={{
-              width: '100vw',
-              height: '100%',
+              width: '100%',
+              height: '100vh',
               display: 'flex',
               justifyContent: 'flex-start',
               alignItems: 'center',
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
-
+              
               backgroundImage: bgImg
                 ? `url('${bgImg}')`
                 : '../assets/image/bg.png',
             }}
-          >
-            <div style={episodeContainer}>
-              <div style={episodeImg}></div>
+            className='bannerSize'
+            >
+            <EpisodeContainer>
+              <a href = {'episode/' + episodesLength} style = {{textDecoration: 'none'}}>
+                <div className='ButtonHomeMobile'>
+                  Escutar agora
+                </div>
+              </a>
+              <div className='EpImg'></div>
               <div style={episodeText}>
-                <h1>{data.data.data.attributes.Home[0].Title}</h1>
-                <h2>Welcome Home</h2>
+                <LightTitle>Episódio {(episodes.length)}</LightTitle>
+                <h2>{lastEpisode.attributes.Titulo}</h2>
+                <br></br>
+                <div className='EpisodeDescription'>
+                  <p>{lastEpisode.attributes.Descricao}</p>
+                </div>
+                <a href = {'/episode/' + episodesLength} style = {{textDecoration:'none'}}>
+                  <div className='ButtonHome'>
+                    Escutar agora
+                  </div>
+                </a>
               </div>
-            </div>
-          </div>
-        </Banner>
+            </EpisodeContainer>
+          </section>
+        {/* </Banner> */}
         
         <ListEpisodeSection episodeList={episodes}></ListEpisodeSection>
         
-        <section style={redesSociais}>
+        <section className = 'redesSociais'>
           {/* redes sociais */}
           <BoldTitle>Acompanhe nosso trabalho nas redes sociais</BoldTitle>
           <SocialCollection>
@@ -102,6 +122,11 @@ const Home = () => {
   }
 };
 
+const episodeDescription = {
+  height: '100px', 
+  overflowY: 'auto'
+}
+
 const bgImgContainer = {
   backgroundPosition: 'center',
   width: '100vw',
@@ -117,6 +142,8 @@ const episodeContainer = {
   display: 'flex',
   justifyContent: 'space-evenly',
   alignItems: 'center',
+
+  
 };
 
 const socialCollection ={
@@ -137,16 +164,9 @@ const episodeImg = {
 const episodeText = {
   display: 'flex',
   flexDirection: 'column' as 'column',
+  width:'50%',
 };
 
-const redesSociais = {
-  display: 'flex',
-  justifyContent: 'center',
-  textAlign: 'center' as 'center',
-  flexDirection: 'column' as 'column',
-
-  height: '200px',
-};
 
 export default Home;
 

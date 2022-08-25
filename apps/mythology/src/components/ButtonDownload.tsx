@@ -22,14 +22,12 @@ const s3 = new AWS.S3({ params: { Bucket: bucket } });
 
 const downloadEP = (epUrl: string, id: string) => {
   const key = getKey(epUrl);
-  console.log('k ', key);
   const params = { Bucket: bucket, Key: key };
 
   s3.getObject(params, (err, data) => {
     if (err) {
       console.log(err, err.stack);
     } else {
-      console.log(data);
       const blob = new Blob([data.Body as BlobPart], {
         type: data.ContentType,
       });

@@ -109,3 +109,99 @@ p {
   width: 100%;
   position: absolute;
 }
+
+/*episode styles*/
+
+.EpImg {
+  background-image: url('./assets/image/thumb_podcast.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 250px;
+  width: 250px;
+}
+
+@media (max-width: 500px) {
+  .EpImg {
+    width: 175px;
+    height: 175px;
+  }
+
+  .bannerSize {
+    background-position: 76% !important;
+  }
+
+  .EpisodeDescription {
+    display: none;
+  }
+
+  .ButtonHome {
+    display: none;
+  }
+
+  .ButtonHomeMobile{
+    display: block!important;
+    font-family: 'FiraSansCondensed';
+    background-color:#E45C3F;
+    color:#FCE4E4;
+    font-size: 22px;
+    border:0;
+    padding: 10px 0px;
+    border-radius:10px;
+    cursor: pointer;
+    transition-duration: 0.6s;
+    width: 150px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .ButtonHomeMobile:focus{
+      border: 2px solid #ce4224;
+  }
+  .ButtonHomeMobile:hover{
+    background-color:#2cd5dc;
+  }
+
+  .redesSociais {
+    flex-direction: row;
+  }
+}
+
+.ButtonHomeMobile{
+  display: none;
+}
+
+.ButtonHome{
+  font-family: 'FiraSansCondensed';
+  background-color:#E45C3F;
+  color:#FCE4E4;
+  font-size: 22px;
+  border:0;
+  padding: 10px 0px;
+  border-radius:10px;
+  cursor: pointer;
+  transition-duration: 0.6s;
+  width: 250px;
+  margin-top: 25px;
+  text-align: center;
+  
+}
+.ButtonHome:focus{
+    border: 2px solid #ce4224;
+}
+.ButtonHome:hover{
+  background-color:#2cd5dc;
+}
+
+
+.EpisodeDescription {
+  height: 100px;
+  overflow-y: auto;
+}
+
+.redesSociais {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  height: 200px;
+}
