@@ -4,6 +4,8 @@ import EpisodeSection from '../components/EpisodeSection';
 import ParticipantSection from '../components/ParticipantSection';
 import { ColumnDiv } from '../components/styles/componentStyles';
 import { apiProvider } from '../services/api/ApiProvider';
+import Loader from '../components/Loader';
+
 
 const Episode = () => {
   const { id } = useParams();
@@ -12,7 +14,7 @@ const Episode = () => {
     apiProvider.useQueryEpisodeWithParticipants(numberEp, id);
 
   if (isLoading) {
-    return <h1>Loading</h1>;
+    return <Loader></Loader>;
   }
   if (isError) {
     return <h2>{error}</h2>;

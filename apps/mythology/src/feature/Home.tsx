@@ -1,5 +1,5 @@
-import Banner from '../components/Banner';
 import ListEpisodeSection from '../components/ListEpisodeSection';
+import Loader from '../components/Loader';
 import { BoldTitle, SocialImg, SocialCollection, EpisodeContainer, LightTitle } from '../components/styles/componentStyles';
 import { apiProvider } from '../services/api/ApiProvider';
 import { MainDiv } from './styles/componentStyles';
@@ -12,12 +12,10 @@ const Home = () => {
   const episodeList = apiProvider.useGetEpisodeList();
   if (isLoading) {
     return (
-      <div>
-        <h1>Is Loading </h1>
-      </div>
+      <Loader></Loader>
+
     );
   } else if (data) {
-    console.log('é boy', data);
     const home = data.data.data.attributes.Home[0];
     bgImg =
       data.data.data.attributes.Home[0].sectionBackground.data.attributes.url;
