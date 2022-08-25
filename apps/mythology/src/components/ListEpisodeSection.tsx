@@ -11,9 +11,9 @@ export function ListEpisodeSection(props: ListEpisodeProps) {
   // if (isLoading) {
   //   return <h1>is loading</h1>;
   // }
-  const episodes = props.episodeList.reverse();
+  const episodes = props.episodeList;
 
-  console.log('received', props.episodeList);
+  console.log('reversed', episodes);
   return (
     <section style={epSection}>
       <FloatTitle>Todos os Episódios</FloatTitle>

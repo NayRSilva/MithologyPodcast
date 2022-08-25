@@ -15,12 +15,12 @@ type EpisodeCardProps = {
 };
 
 export function EpisodeCard(props: EpisodeCardProps) {
-  console.log('properties', props.episode);
   const ep = props.episode;
+  console.log("novo nay", props.episode)
   return (
-    <EpisodeCardDiv>
+    <EpisodeCardDiv key={"episodeCard"+props.id}>
       <UndersCoreEpLink to={'/episode/' + ep.id}>
-        Episode {props.id}
+        Episode {ep.attributes.NumeroEpisodio}
       </UndersCoreEpLink>
 
       <BolderEpLink to={'/episode/' + ep.id}>
