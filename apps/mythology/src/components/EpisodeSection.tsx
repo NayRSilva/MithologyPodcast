@@ -25,6 +25,7 @@ export function EpisodeSection(props: ESectionProps) {
   let transcript = '';
   let description = '';
   const title = props.episode?.attributes.Titulo;
+  const numero = props.episode?.attributes.NumeroEpisodio
 
   description = description + props.episode?.attributes.Descricao;
 
@@ -35,7 +36,7 @@ export function EpisodeSection(props: ESectionProps) {
   return (
     <section>
       <Titles>
-        <LightTitle>Episódio {props.id}</LightTitle>
+        <LightTitle>Episódio {numero}</LightTitle>
         <BoldTitle>{title}</BoldTitle>
       </Titles>
       <EpisodeMidia id={props.id} episode={props.episode}></EpisodeMidia>

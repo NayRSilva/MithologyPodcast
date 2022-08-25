@@ -49,7 +49,7 @@ export function SliderEpisode(props: SliderEpisodeProps) {
           episodeSize--;
           if(i===0){
             return (
-              <div ref={measuredCard}>
+              <div ref={measuredCard} key="the0">
                 <EpisodeCard key={"ep"+i} episode={e} id={episodeSize.toString()}></EpisodeCard>
               </div>
             );

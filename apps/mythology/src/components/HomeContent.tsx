@@ -30,13 +30,17 @@ export function HomeContent(props: ContentProps) {
     const igUrl = basehttp+home.instagramUrl;
     const ytUrl = basehttp+home.youtubeUrl;
     const episodes = episodeList.data.data.sort((a, b)=>{
-      if(a.id<b.id) return 1
+      if(!a.attributes.NumeroEpisodio){ a.attributes.NumeroEpisodio=0}
+      if(!b.attributes.NumeroEpisodio){ b.attributes.NumeroEpisodio=0}
+
+      if(parseInt(a.attributes.NumeroEpisodio)<parseInt(b.attributes.NumeroEpisodio)) return 1
+
       return-1
     });
     const episodesLength = episodes.length;
     const lastEpisode = episodes[0];
     console.log("direto: ", episodes)
-    console.log("teste aq",  lastEpisode)
+    // console.log("teste aq",  lastEpisode)
     return (
         <MainDiv style={fix}>
         {/* <Banner> */}
