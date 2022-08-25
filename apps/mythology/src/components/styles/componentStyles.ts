@@ -372,6 +372,8 @@ export const EpisodeCardDiv = styled.div`
 	background:#D9D9D9;
   padding: 20px 0  30px 0;
   border-radius:15px;
+  flex-shrink: unset;
+
   margin: 0 15px;
 
   @media(max-width: 1025px) {
