@@ -20,19 +20,18 @@ export const CommonDiv = styled.div`
 `
 
 export const SocialCollection = styled.div`
-  margin-top: 15px
+  margin-top: 15px;
 
-  display:flex;
+  display: flex;
   justify-content: center;
   margin:30px 0px;
 
-  @media(max-width: 400px) {
-    width:100px;
-    flex-wrap: wrap;
+  @media(max-width: 500px) {
+    flex-direction: row;
 
   }
-
 `
+
 export const ParticipantContainer = styled.div`
     flex-direction: column;
     display:flex;
@@ -51,8 +50,6 @@ export const ParticipantContainer = styled.div`
       }
 
 `
-
-
 export const ParticipantPhoto = styled.img`
     width: 150px;
     height:150px;
@@ -462,6 +459,7 @@ export const EpisodeContainer = styled.div`
       @media(max-width: 500px) {
         flex-direction:column-reverse;
         width:85%;
+        height: 350px;
 
       }
   

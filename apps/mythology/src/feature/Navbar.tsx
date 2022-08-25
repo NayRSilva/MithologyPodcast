@@ -12,7 +12,7 @@ const Navbar = () => {
 
     return (
       <div style={HeaderStyle}>
-        <NavLink to="/home">
+        <NavLink to="/">
           <img
             alt="logo mitologia podcast"
             src={dataImg ? dataImg : '../assets/image/header.png'}
@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <div style={HeaderStyle}>
-      <NavLink to="/home">
+      <NavLink to="/">
         <img
           alt="logo mitologia podcast"
           src="../assets/image/header.png"

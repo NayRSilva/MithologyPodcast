@@ -31,8 +31,13 @@ const Home = () => {
 
 
     let episodes = [];
-
-    if (!episodeList.isLoading) episodes = episodeList.data.data.data;
+    let lastEpisode, episodesLength;
+    if (!episodeList.isLoading) {
+      episodes = episodeList.data.data.data;
+      episodesLength = episodes.length;
+      lastEpisode = episodes[(episodesLength)-1];
+      console.log("teste aq",  lastEpisode)
+    }
 
     return (
       <MainDiv>
@@ -53,12 +58,26 @@ const Home = () => {
                 : '../assets/image/bg.png',
             }}
             className='bannerSize'
-          >
+            >
             <EpisodeContainer>
+              <a href = {'episode/' + episodesLength} style = {{textDecoration: 'none'}}>
+                <div className='ButtonHomeMobile'>
+                  Escutar agora
+                </div>
+              </a>
               <div className='EpImg'></div>
               <div style={episodeText}>
-                <LightTitle>{data.data.data.attributes.Home[0].Title}</LightTitle>
-                <h2>Welcome Home</h2>
+                <LightTitle>Episódio {(episodes.length)}</LightTitle>
+                <h2>{lastEpisode.attributes.Titulo}</h2>
+                <br></br>
+                <div className='EpisodeDescription'>
+                  <p>{lastEpisode.attributes.Descricao}</p>
+                </div>
+                <a href = {'/episode/' + episodesLength} style = {{textDecoration:'none'}}>
+                  <div className='ButtonHome'>
+                    Escutar agora
+                  </div>
+                </a>
               </div>
             </EpisodeContainer>
           </section>
@@ -66,7 +85,7 @@ const Home = () => {
         
         <ListEpisodeSection episodeList={episodes}></ListEpisodeSection>
         
-        <section style={redesSociais}>
+        <section className = 'redesSociais'>
           {/* redes sociais */}
           <BoldTitle>Acompanhe nosso trabalho nas redes sociais</BoldTitle>
           <SocialCollection>
@@ -102,6 +121,11 @@ const Home = () => {
     );
   }
 };
+
+const episodeDescription = {
+  height: '100px', 
+  overflowY: 'auto'
+}
 
 const bgImgContainer = {
   backgroundPosition: 'center',
@@ -143,14 +167,6 @@ const episodeText = {
   width:'50%',
 };
 
-const redesSociais = {
-  display: 'flex',
-  justifyContent: 'center',
-  textAlign: 'center' as 'center',
-  flexDirection: 'column' as 'column',
-
-  height: '200px',
-};
 
 export default Home;
 
