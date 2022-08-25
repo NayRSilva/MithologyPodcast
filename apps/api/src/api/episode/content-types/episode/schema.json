@@ -47,6 +47,9 @@
     },
     "youtube": {
       "type": "string"
+    },
+    "NumeroEpisodio": {
+      "type": "string"
     }
   }
 }
