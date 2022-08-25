@@ -1,6 +1,7 @@
+import HomeContent from '../components/HomeContent';
 import ListEpisodeSection from '../components/ListEpisodeSection';
 import Loader from '../components/Loader';
-import { BoldTitle, SocialImg, SocialCollection, EpisodeContainer, LightTitle } from '../components/styles/componentStyles';
+
 import { apiProvider } from '../services/api/ApiProvider';
 import { MainDiv } from './styles/componentStyles';
 
@@ -9,108 +10,17 @@ import { MainDiv } from './styles/componentStyles';
 let bgImg: string;
 const Home = () => {
   const { isLoading, data } = apiProvider.GetHomeWithImg();
-  const episodeList = apiProvider.useGetEpisodeList();
   if (isLoading) {
     return (
       <Loader></Loader>
 
     );
   } else if (data) {
-    const home = data.data.data.attributes.Home[0];
-    bgImg =
-      data.data.data.attributes.Home[0].sectionBackground.data.attributes.url;
-    //url(${Background})
-    const basehttp = 'https://'
-    const fbUrl = basehttp+home.facebookUrl;
-    const ttUrl = basehttp+home.tiktokUrl;
-    const igUrl = basehttp+home.instagramUrl;
-    const ytUrl = basehttp+home.youtubeUrl;
 
-
-
-    let episodes = [];
-    let lastEpisode, episodesLength;
-    if (!episodeList.isLoading) {
-      episodes = episodeList.data.data.data;
-      episodesLength = episodes.length;
-      lastEpisode = episodes[(episodesLength)-1];
-      console.log("teste aq",  lastEpisode)
-    }
-
+ 
     return (
-      <MainDiv>
-        {/* <Banner> */}
-          <section
-            style={{
-              width: '100%',
-              height: '100vh',
-              display: 'flex',
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-              
-              backgroundImage: bgImg
-                ? `url('${bgImg}')`
-                : '../assets/image/bg.png',
-            }}
-            className='bannerSize'
-            >
-            <EpisodeContainer>
-              <a href = {'episode/' + episodesLength} style = {{textDecoration: 'none'}}>
-                <div className='ButtonHomeMobile'>
-                  Escutar agora
-                </div>
-              </a>
-              <div className='EpImg'></div>
-              <div style={episodeText}>
-                <LightTitle>Episódio {(episodes.length)}</LightTitle>
-                <h2>{lastEpisode.attributes.Titulo}</h2>
-                <br></br>
-                <div className='EpisodeDescription'>
-                  <p>{lastEpisode.attributes.Descricao}</p>
-                </div>
-                <a href = {'/episode/' + episodesLength} style = {{textDecoration:'none'}}>
-                  <div className='ButtonHome'>
-                    Escutar agora
-                  </div>
-                </a>
-              </div>
-            </EpisodeContainer>
-          </section>
-        {/* </Banner> */}
-        
-        <ListEpisodeSection episodeList={episodes}></ListEpisodeSection>
-        
-        <section className = 'redesSociais'>
-          {/* redes sociais */}
-          <BoldTitle>Acompanhe nosso trabalho nas redes sociais</BoldTitle>
-          <SocialCollection>
-            
-            <a href={ttUrl}>
-              {/* <SocialMedia src="../assets/image/"></SocialMedia> */}
-              <SocialImg src="../assets/image/icon_tiktok.png"></SocialImg>
-            </a>
-            <a href={ytUrl}>
-
-              <SocialImg src="../assets/image/icon_youtube.png"></SocialImg>
-              </a>
-            <a href={fbUrl}>
-
-              <SocialImg src="../assets/image/icon_facebook.png"></SocialImg>
-              </a>
-            <a href={igUrl}>
-              
-              <SocialImg src="../assets/image/icon_instagram.png"></SocialImg>
-              </a>
-
-
-
-          </SocialCollection>
-        </section>
-      </MainDiv>
-    );
+      <HomeContent data={data}></HomeContent>
+    )
   } else {
     return (
       <div>
