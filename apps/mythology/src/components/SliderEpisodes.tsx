@@ -38,7 +38,7 @@ export function SliderEpisode(props: SliderEpisodeProps) {
   };
 
   return (
-    <div style={sliderDiv} ref={measuredRef}>
+    <div style={sliderDiv} ref={measuredRef} id="sliderDiv">
 
 
       <LateralSliderDiv
@@ -50,12 +50,12 @@ export function SliderEpisode(props: SliderEpisodeProps) {
           if(i===0){
             return (
               <div ref={measuredCard}>
-                <EpisodeCard episode={e} id={episodeSize.toString()}></EpisodeCard>
+                <EpisodeCard key={"ep"+i} episode={e} id={episodeSize.toString()}></EpisodeCard>
               </div>
             );
           }
           return (
-            <EpisodeCard episode={e} id={episodeSize.toString()}></EpisodeCard>
+            <EpisodeCard key={"ep"+i} episode={e} id={episodeSize.toString()}></EpisodeCard>
           );
         })}
       </LateralSliderDiv>

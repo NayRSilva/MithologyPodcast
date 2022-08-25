@@ -29,10 +29,13 @@ export function HomeContent(props: ContentProps) {
     const ttUrl = basehttp+home.tiktokUrl;
     const igUrl = basehttp+home.instagramUrl;
     const ytUrl = basehttp+home.youtubeUrl;
-      console.log("buga",episodeList)
-    const episodes = episodeList.data.data;
+    const episodes = episodeList.data.data.sort((a, b)=>{
+      if(a.id<b.id) return 1
+      return-1
+    });
     const episodesLength = episodes.length;
-    const lastEpisode = episodes[(episodesLength)-1];
+    const lastEpisode = episodes[0];
+    console.log("direto: ", episodes)
     console.log("teste aq",  lastEpisode)
     return (
         <MainDiv style={fix}>
