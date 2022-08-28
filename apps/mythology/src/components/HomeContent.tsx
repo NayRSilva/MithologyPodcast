@@ -25,10 +25,10 @@ export function HomeContent(props: ContentProps) {
       dataH.data.data.attributes.Home[0].sectionBackground.data.attributes.url;
     //url(${Background})
     const basehttp = 'https://'
-    const fbUrl = basehttp+home.facebookUrl;
-    const ttUrl = basehttp+home.tiktokUrl;
-    const igUrl = basehttp+home.instagramUrl;
-    const ytUrl = basehttp+home.youtubeUrl;
+    const fbUrl = (''+home.facebookUrl).includes("http")? ''+home.facebookUrl:basehttp+home.facebookUrl;
+    const ttUrl = (''+home.tiktokUrl).includes("http")? ''+home.tiktokUrl:basehttp+home.tiktokUrl;
+    const igUrl = (''+home.instagramUrl).includes("http")? ''+home.instagramUrl:basehttp+home.instagramUrl;
+    const ytUrl = (''+home.youtubeUrl).includes("http")? ''+home.youtubeUrl:basehttp+home.youtubeUrl;
     const episodes = episodeList.data.data.sort((a, b)=>{
       if(!a.attributes.NumeroEpisodio){ a.attributes.NumeroEpisodio=0}
       if(!b.attributes.NumeroEpisodio){ b.attributes.NumeroEpisodio=0}
