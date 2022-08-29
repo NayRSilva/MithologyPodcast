@@ -50,6 +50,13 @@
     },
     "NumeroEpisodio": {
       "type": "string"
+    },
+    "links": {
+      "displayName": "Link",
+      "type": "component",
+      "repeatable": true,
+      "component": "link.link",
+      "required": true
     }
   }
 }
