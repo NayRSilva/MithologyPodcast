@@ -45,11 +45,8 @@ export function ParticipantSection(props: ESectionProps) {
         {props.participants.map((participant, i) => {
           if (i === 0) {
             return (
-              <div ref={measuredCard}>
-                <ParticipantCard
-                  key="participant0"
-                  participant={participant}
-                ></ParticipantCard>
+              <div ref={measuredCard} key={i}>
+                <ParticipantCard participant={participant}></ParticipantCard>
               </div>
             );
           }
