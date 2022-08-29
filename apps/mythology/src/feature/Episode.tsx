@@ -5,7 +5,7 @@ import ParticipantSection from '../components/ParticipantSection';
 import { ColumnDiv } from '../components/styles/componentStyles';
 import { apiProvider } from '../services/api/ApiProvider';
 import Loader from '../components/Loader';
-
+import ExternalLinks from '../components/ExternalLinks';
 
 const Episode = () => {
   const { id } = useParams();
@@ -27,6 +27,10 @@ const Episode = () => {
       <EpisodeSection id={id} episode={episode}></EpisodeSection>
 
       <ParticipantSection participants={participants}></ParticipantSection>
+
+      {episode?.attributes.links && episode?.attributes.links.length > 0 && (
+        <ExternalLinks links={episode?.attributes.links} />
+      )}
     </ColumnDiv>
   );
 };

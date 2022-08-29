@@ -42,7 +42,7 @@ const getEpisodeWithParticipants = (id: string | undefined) => {
     baseURL +
     'episodes/' +
     id +
-    '?populate=%2A&populate[0]=audio&populate[1]=Participante.imagem';
+    '?populate=%2A&populate[0]=audio&populate[1]=Participante.imagem&populate[2]=links';
   return getUrl(url);
 };
 
