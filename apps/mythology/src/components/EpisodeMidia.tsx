@@ -22,19 +22,22 @@ const getYoutubeId = (url: string) => {
 };
 
 export function EpisodeMidia(props: EMidiaProps) {
+  const strapiYoutube = props.episode?.attributes.youtube;
+  const strapiSpotify = props.episode?.attributes.spotify;
+  const strapiAudio = props.episode?.attributes.audio?.data;
+
   //string to avoid undefined
   let urlSpotify = '';
   let urlYoutube = '';
   let downloadUrl = '';
   let id = '';
   id = id + props.id;
-  urlYoutube = urlYoutube + props.episode?.attributes.youtube;
-  urlSpotify = urlSpotify + props.episode?.attributes.spotify;
-  downloadUrl =
-    downloadUrl + props.episode?.attributes.audio.data.attributes.url;
+  urlYoutube = urlYoutube + strapiYoutube;
+  urlSpotify = urlSpotify + strapiSpotify;
+  downloadUrl = downloadUrl + strapiAudio?.attributes?.url;
   //defining consts
   const ytId = getYoutubeId(urlYoutube);
-  const date = new Date(props.episode?.attributes.createdAt);
+  const date = new Date(props.episode?.attributes?.createdAt);
   const option = {
     day: '2-digit',
     year: 'numeric',
@@ -46,14 +49,18 @@ export function EpisodeMidia(props: EMidiaProps) {
     <>
       <EpisodeInfo>Escute via Youtube ou Spotify</EpisodeInfo>
 
-      <YoutubeEmbed embedId={ytId}></YoutubeEmbed>
-      <ControlledSpotify url={urlSpotify}></ControlledSpotify>
+      {strapiYoutube && <YoutubeEmbed embedId={ytId}></YoutubeEmbed>}
+      {strapiSpotify && (
+        <ControlledSpotify url={urlSpotify}></ControlledSpotify>
+      )}
       <ComponentEpisodeDiv>
         <EpisodeInfo style={leftInfo}>
           {date.toLocaleDateString('pt-br', option)}
         </EpisodeInfo>
         <div style={rightButton}>
-          <ButtonDownload downloadUrl={downloadUrl} idEp={id} />
+          {strapiAudio && (
+            <ButtonDownload downloadUrl={downloadUrl} idEp={id} />
+          )}
         </div>
       </ComponentEpisodeDiv>
     </>

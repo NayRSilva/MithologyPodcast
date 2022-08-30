@@ -11,7 +11,7 @@ import {
 } from './styles/componentStyles';
 import TranscriptionSection from './TranscriptionSection';
 
-type Episode = {
+export type Episode = {
   id: string;
   attributes: EpisodeAttributes;
 };
@@ -21,16 +21,16 @@ type ESectionProps = {
   children?: JSX.Element[] | JSX.Element;
 };
 
-export function EpisodeSection(props: ESectionProps) {
+export function EpisodeSection({ episode, id }: ESectionProps) {
   let transcript = '';
   let description = '';
-  const title = props.episode?.attributes.Titulo;
-  const numero = props.episode?.attributes.NumeroEpisodio
+  const title = episode?.attributes.Titulo;
+  const numero = episode?.attributes.NumeroEpisodio;
 
-  description = description + props.episode?.attributes.Descricao;
+  description = description + episode?.attributes.Descricao;
 
-  if (props.episode?.attributes.Transcricao !== undefined) {
-    transcript = transcript + props.episode?.attributes.Transcricao;
+  if (episode?.attributes.Transcricao !== undefined) {
+    transcript = transcript + episode?.attributes.Transcricao;
   }
 
   return (
@@ -39,8 +39,8 @@ export function EpisodeSection(props: ESectionProps) {
         <LightTitle>Episódio {numero}</LightTitle>
         <BoldTitle>{title}</BoldTitle>
       </Titles>
-      <EpisodeMidia id={props.id} episode={props.episode}></EpisodeMidia>
-      {props.children}
+      <EpisodeMidia id={id} episode={episode}></EpisodeMidia>
+
       <EpisodeSummary>
         <Markdown>{description}</Markdown>
       </EpisodeSummary>
