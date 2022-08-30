@@ -1,5 +1,7 @@
-import { useParams } from 'react-router-dom';
-import EpisodeSection from '../components/EpisodeSection';
+import { Navigate, useParams } from 'react-router-dom';
+import EpisodeSection, {
+  type Episode as TEpisode,
+} from '../components/EpisodeSection';
 // import ParticipantCard from '../components/ParticipantCard';
 import ParticipantSection from '../components/ParticipantSection';
 import { ColumnDiv } from '../components/styles/componentStyles';
@@ -17,20 +19,25 @@ const Episode = () => {
     return <Loader></Loader>;
   }
   if (isError) {
-    return <h2>{error}</h2>;
+    console.error(error);
+    return <Navigate to="/" replace />;
   }
-  const episode = data.data.data;
-  const participants: Array<any | undefined> = episode?.attributes.Participante;
+
+  const episode: TEpisode = data.data.data;
+  if (!episode) return <Navigate to="/" replace />;
+
+  const links = episode.attributes.links;
+  const participants = episode.attributes.Participantes;
 
   return (
     <ColumnDiv>
-      <EpisodeSection id={id} episode={episode}></EpisodeSection>
+      <EpisodeSection id={id} episode={episode} />
 
-      <ParticipantSection participants={participants}></ParticipantSection>
-
-      {episode?.attributes.links && episode?.attributes.links.length > 0 && (
-        <ExternalLinks links={episode?.attributes.links} />
+      {participants && participants.length > 0 && (
+        <ParticipantSection participants={participants} />
       )}
+
+      {links && links.length > 0 && <ExternalLinks links={links} />}
     </ColumnDiv>
   );
 };
