@@ -75,7 +75,7 @@ export function HomeContent(props: ContentProps) {
                 <div className='EpisodeDescription'>
                   <p>{lastEpisode.attributes.Descricao}</p>
                 </div>
-                <a href = {'/episode/' + episodesLength} style = {{textDecoration:'none'}}>
+                <a href = {'/episode/' + lastEpisode.id} style = {{textDecoration:'none'}}>
                   <div className='ButtonHome'>
                     Escutar agora
                   </div>
