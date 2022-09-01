@@ -1,5 +1,5 @@
 import SliderEpisode from './SliderEpisodes';
-import {  FloatTitle } from './styles/componentStyles';
+import { FloatTitle } from './styles/componentStyles';
 
 type ListEpisodeProps = {
   episodeList: Array<any>;
@@ -13,7 +13,7 @@ export function ListEpisodeSection(props: ListEpisodeProps) {
   // }
   const episodes = props.episodeList;
 
-  console.log('reversed', episodes);
+  // console.log('reversed', episodes);
   return (
     <section style={epSection}>
       <FloatTitle>Todos os Episódios</FloatTitle>

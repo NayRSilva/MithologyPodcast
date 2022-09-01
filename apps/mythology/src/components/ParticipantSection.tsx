@@ -29,10 +29,10 @@ export function ParticipantSection(props: ESectionProps) {
   }, []);
   const isSmallerThenContainer = () => {
     if (cardsWidth < width) {
-      console.log('smaller ', width);
+      // console.log('smaller ', width);
       return true;
     }
-    console.log('noy small', width, cardsWidth, cardWidth);
+    // console.log('noy small', width, cardsWidth, cardWidth);
     return false;
   };
   return (
