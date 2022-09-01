@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 
 // const baseURL = 'http://localhost:1337/api/'
-let baseURL = process.env.NX_BASE_API_URL as string;
+export let baseURL = process.env.NX_BASE_API_URL as string;
 
 const useDefineUrl = () => {
   if (!baseURL) baseURL = 'https://api.mitologianodiaadia.com.br/api/';
@@ -13,7 +13,6 @@ const getUrl = (url: string) => {
 };
 
 const getFunction = (resource: string) => {
-  console.log('NAHA', baseURL);
   const url = baseURL + resource + '?populate=*';
 
   return getUrl(url);
