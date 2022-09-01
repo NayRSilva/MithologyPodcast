@@ -9,15 +9,30 @@ import {
   LightTitle,
 } from '../components/styles/componentStyles';
 import { apiProvider } from '../services/api/ApiProvider';
+import { useGlobalLinks } from '../services/api/globalLinks';
+import ExternalLinks from './ExternalLinks';
+import styled from 'styled-components';
+
+const LinksBox = styled.div`
+  margin: 0.8rem 2.4rem;
+  max-width: 40rem;
+  width: 95%;
+
+  > * {
+    margin: auto;
+  }
+`;
 
 type ContentProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any;
 };
 
 export function HomeContent(props: ContentProps) {
   const dataH = props.data;
   const { isLoading, data, isError, error } = apiProvider.useGetEpisodeList();
-
+  const { data: linksData, status } = useGlobalLinks();
+  console.log('OI', linksData, status);
   if (isLoading) {
     return <Loader></Loader>;
   }
@@ -60,8 +75,8 @@ export function HomeContent(props: ContentProps) {
   });
   const episodesLength = episodes.length;
   const lastEpisode = episodes[0];
-  console.log('direto: ', episodes);
-  // console.log("teste aq",  lastEpisode)
+
+  console.log('linksDaata', linksData);
   return (
     <MainDiv style={fix}>
       {/* <Banner> */}
@@ -108,6 +123,12 @@ export function HomeContent(props: ContentProps) {
 
       <ListEpisodeSection episodeList={episodes}></ListEpisodeSection>
 
+      <LinksBox>
+        {linksData && linksData.length > 0 && (
+          <ExternalLinks links={linksData} />
+        )}
+      </LinksBox>
+
       <section className="redesSociais">
         {/* redes sociais */}
         <BoldTitle>Acompanhe nosso trabalho nas redes sociais</BoldTitle>
@@ -131,51 +152,51 @@ export function HomeContent(props: ContentProps) {
   );
 }
 
-const episodeDescription = {
-  height: '100px',
-  overflowY: 'auto',
-};
+// const episodeDescription = {
+//   height: '100px',
+//   overflowY: 'auto',
+// };
 
-const bgImgContainer = {
-  backgroundPosition: 'center',
-  width: '100vw',
-  height: '100%',
-  display: 'flex',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-};
+// const bgImgContainer = {
+//   backgroundPosition: 'center',
+//   width: '100vw',
+//   height: '100%',
+//   display: 'flex',
+//   justifyContent: 'flex-start',
+//   alignItems: 'center',
+// };
 
-const episodeContainer = {
-  width: '50%',
-  height: '40%',
-  display: 'flex',
-  justifyContent: 'space-evenly',
-  alignItems: 'center',
-};
+// const episodeContainer = {
+//   width: '50%',
+//   height: '40%',
+//   display: 'flex',
+//   justifyContent: 'space-evenly',
+//   alignItems: 'center',
+// };
 
-const socialCollection = {
-  display: 'flex',
-  justifyContent: 'center',
-  margin: '30px 0px',
-};
-const episodeImg = {
-  backgroundImage: "url('../assets/image/thumb_podcast.png')",
-  backgroundSize: 'contain',
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'top',
-  height: '250px',
-  width: '250px',
-};
+// const socialCollection = {
+//   display: 'flex',
+//   justifyContent: 'center',
+//   margin: '30px 0px',
+// };
+// const episodeImg = {
+//   backgroundImage: "url('../assets/image/thumb_podcast.png')",
+//   backgroundSize: 'contain',
+//   backgroundRepeat: 'no-repeat',
+//   backgroundPosition: 'top',
+//   height: '250px',
+//   width: '250px',
+// };
 
 const episodeText = {
   display: 'flex',
-  flexDirection: 'column' as 'column',
+  flexDirection: 'column',
   width: '50%',
-};
+} as const;
 
 const fix = {
   display: 'flex',
-  flexDirection: 'column' as 'column',
-};
+  flexDirection: 'column',
+} as const;
 
 export default HomeContent;
