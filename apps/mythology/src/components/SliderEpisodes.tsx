@@ -21,7 +21,6 @@ export function SliderEpisode(props: SliderEpisodeProps) {
     }
   }, []);
 
-
   const measuredCard = useCallback((node) => {
     if (node !== null) {
       setCardWidth(node.getBoundingClientRect().width);
@@ -30,32 +29,38 @@ export function SliderEpisode(props: SliderEpisodeProps) {
 
   const isSmallerThenContainer = () => {
     if (cardsWidth < width) {
-      console.log('smaller ', width);
+      // console.log('smaller ', width);
       return true;
     }
-    console.log('noy small', width, cardsWidth, cardWidth);
+    // console.log('noy small', width, cardsWidth, cardWidth);
     return false;
   };
 
   return (
     <div style={sliderDiv} ref={measuredRef} id="sliderDiv">
-
-
       <LateralSliderDiv
         tabIndex={0}
         className={isSmallerThenContainer() ? 'center-small' : ''}
       >
         {props.episodes.map((e, i) => {
           episodeSize--;
-          if(i===0){
+          if (i === 0) {
             return (
               <div ref={measuredCard} key="the0">
-                <EpisodeCard key={"ep"+i} episode={e} id={episodeSize.toString()}></EpisodeCard>
+                <EpisodeCard
+                  key={'ep' + i}
+                  episode={e}
+                  id={episodeSize.toString()}
+                ></EpisodeCard>
               </div>
             );
           }
           return (
-            <EpisodeCard key={"ep"+i} episode={e} id={episodeSize.toString()}></EpisodeCard>
+            <EpisodeCard
+              key={'ep' + i}
+              episode={e}
+              id={episodeSize.toString()}
+            ></EpisodeCard>
           );
         })}
       </LateralSliderDiv>

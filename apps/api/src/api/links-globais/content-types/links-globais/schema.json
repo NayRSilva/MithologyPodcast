@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "links_globaiss",
+  "info": {
+    "singularName": "links-globais",
+    "pluralName": "links-globaiss",
+    "displayName": "Links Globais"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.link"
+    }
+  }
+}
