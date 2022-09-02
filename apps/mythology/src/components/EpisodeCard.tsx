@@ -20,7 +20,7 @@ export function EpisodeCard(props: EpisodeCardProps) {
   return (
     <EpisodeCardDiv key={"episodeCard"+props.id}>
       <UndersCoreEpLink to={'/episode/' + ep.id}>
-        Episode {ep.attributes.NumeroEpisodio}
+        Episódio {ep.attributes.NumeroEpisodio}
       </UndersCoreEpLink>
 
       <BolderEpLink to={'/episode/' + ep.id}>
