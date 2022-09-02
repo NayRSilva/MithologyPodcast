@@ -10,7 +10,7 @@ type ContentProps = {
 
 export function HomeContent(props: ContentProps) {
     const dataH = props.data
-    const {isLoading, data, isError, error} = apiProvider.useGetEpisodeList();
+    const {isLoading, data, isError, error} = apiProvider.useGetEpisodeListCover();
 
     
     if (isLoading) {
@@ -32,13 +32,18 @@ export function HomeContent(props: ContentProps) {
     const episodes = episodeList.data.data.sort((a, b)=>{
       if(!a.attributes.NumeroEpisodio){ a.attributes.NumeroEpisodio=0}
       if(!b.attributes.NumeroEpisodio){ b.attributes.NumeroEpisodio=0}
+      // const aDate = new Date(a.attributes.updatedAt)
+      // const bDate = new Date(b.attributes.updatedAt)
+
 
       if(parseInt(a.attributes.NumeroEpisodio)<parseInt(b.attributes.NumeroEpisodio)) return 1
 
       return-1
+      // return bDate.valueOf()-aDate.valueOf() ;
     });
     const episodesLength = episodes.length;
     const lastEpisode = episodes[0];
+    const coverImg = lastEpisode.attributes.Capa.data.attributes.url;
     console.log("direto: ", episodes)
     // console.log("teste aq",  lastEpisode)
     return (
@@ -67,9 +72,18 @@ export function HomeContent(props: ContentProps) {
                   Escutar agora
                 </div>
               </a>
-              <div className='EpImg'></div>
+           
+              <div style={{
+                backgroundImage: coverImg? `url('${coverImg}')`
+                : '../assets/image/thumb_podcast.png',
+                
+              }} className='EpImg'></div>
+
+
+              
+              {/* <div className='EpImg'></div> */}
               <div style={episodeText}>
-                <LightTitle>Episódio {(episodes.length)}</LightTitle>
+                <LightTitle>Episódio {(lastEpisode.attributes.NumeroEpisodio)}</LightTitle>
                 <h2>{lastEpisode.attributes.Titulo}</h2>
                 <br></br>
                 <div className='EpisodeDescription'>

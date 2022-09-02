@@ -51,6 +51,11 @@ const getEpisodeList = () => {
   return getUrl(url);
 };
 
+const getEpisodeListCover = () => {
+  const url = baseURL + 'episodes?populate=%2A';
+  return getUrl(url);
+};
+
 const useQueryEpisodeWithParticipants = (
   name: string,
   id: string | undefined
@@ -93,6 +98,10 @@ const GetHomeWithImg = () => {
 const useGetEpisodeList = () => {
   return useQuery(['episodeList'], () => getEpisodeList());
 };
+
+const useGetEpisodeListCover = () => {
+  return useQuery(['episodeListCover'], () => getEpisodeListCover());
+};
 export const apiProvider = {
   GetSingleAll,
   GetQueryOEmb,
@@ -103,4 +112,5 @@ export const apiProvider = {
   useGetLogoImage,
   GetHomeWithImg,
   useGetEpisodeList,
+  useGetEpisodeListCover
 };

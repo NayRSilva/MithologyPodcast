@@ -113,7 +113,7 @@ p {
 /*episode styles*/
 
 .EpImg {
-  background-image: url('./assets/image/thumb_podcast.png');
+
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top;
