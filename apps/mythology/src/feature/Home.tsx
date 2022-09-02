@@ -24,7 +24,7 @@ const Home = () => {
   } else {
     return (
       <div>
-        <h1>Hmmm</h1>
+        <h1>Erro: sem coteúdo</h1>
       </div>
     );
   }

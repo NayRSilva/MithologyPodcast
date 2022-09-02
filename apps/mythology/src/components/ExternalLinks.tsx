@@ -19,7 +19,7 @@ export const ExternalLinks: FC<ExternalLinksProps> = ({ links }) => {
       <ul>
         {links.map(({ text, url }) => (
           <li>
-            <a href={url} target="_blank" rel="noopener noreferrer">
+            <a href={'https://'+url} target="_blank" rel="noopener noreferrer">
               {text}
             </a>
           </li>
