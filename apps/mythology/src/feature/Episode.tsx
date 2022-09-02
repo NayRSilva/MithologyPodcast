@@ -33,9 +33,9 @@ const Episode = () => {
     <ColumnDiv>
       <EpisodeSection id={id} episode={episode} />
 
-      {participants && participants.length > 0 && (
+      {/* {participants && participants.length > 0 && (
         <ParticipantSection participants={participants} />
-      )}
+      )} */}
 
       {links && links.length > 0 && <ExternalLinks links={links} />}
     </ColumnDiv>
