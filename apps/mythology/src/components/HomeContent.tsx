@@ -30,7 +30,7 @@ type ContentProps = {
 
 export function HomeContent(props: ContentProps) {
   const dataH = props.data;
-  const { isLoading, data, isError, error } = apiProvider.useGetEpisodeList();
+  const { isLoading, data, isError, error } = apiProvider.useGetEpisodeListCover();
   const { data: linksData, status } = useGlobalLinks();
   console.log('OI', linksData, status);
   if (isLoading) {
@@ -75,6 +75,8 @@ export function HomeContent(props: ContentProps) {
   });
   const episodesLength = episodes.length;
   const lastEpisode = episodes[0];
+  const coverImg = lastEpisode.attributes.Capa.data.attributes.url;
+
 
   console.log('linksDaata', linksData);
   return (
@@ -102,16 +104,20 @@ export function HomeContent(props: ContentProps) {
           >
             <div className="ButtonHomeMobile">Escutar agora</div>
           </a>
-          <div className="EpImg"></div>
+          <div style={{
+                backgroundImage: coverImg? `url('${coverImg}')`
+                : '../assets/image/thumb_podcast.png',
+                
+              }} className='EpImg'></div>
           <div style={episodeText}>
-            <LightTitle>Episódio {episodes.length}</LightTitle>
+            <LightTitle>Episódio {(lastEpisode.attributes.NumeroEpisodio)}</LightTitle>
             <h2>{lastEpisode.attributes.Titulo}</h2>
             <br></br>
             <div className="EpisodeDescription">
               <p>{lastEpisode.attributes.Descricao}</p>
             </div>
             <a
-              href={'/episode/' + episodesLength}
+              href={'/episode/' + lastEpisode.id}
               style={{ textDecoration: 'none' }}
             >
               <div className="ButtonHome">Escutar agora</div>
