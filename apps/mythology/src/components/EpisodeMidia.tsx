@@ -49,10 +49,11 @@ export function EpisodeMidia(props: EMidiaProps) {
     <>
       <EpisodeInfo>Escute via Youtube ou Spotify</EpisodeInfo>
 
-      {strapiYoutube && <YoutubeEmbed embedId={ytId}></YoutubeEmbed>}
+
       {strapiSpotify && (
         <ControlledSpotify url={urlSpotify}></ControlledSpotify>
       )}
+      {strapiYoutube && <YoutubeEmbed embedId={ytId}></YoutubeEmbed>}
       <ComponentEpisodeDiv>
         <EpisodeInfo style={leftInfo}>
           {date.toLocaleDateString('pt-br', option)}
