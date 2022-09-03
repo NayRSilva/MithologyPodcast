@@ -40,23 +40,19 @@
         "images"
       ]
     },
-    "Participante": {
-      "type": "component",
-      "repeatable": true,
-      "component": "personagem.personagem"
-    },
     "youtube": {
       "type": "string"
     },
     "NumeroEpisodio": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "links": {
       "displayName": "Link",
       "type": "component",
       "repeatable": true,
       "component": "link.link",
-      "required": true
+      "required": false
     }
   }
 }
