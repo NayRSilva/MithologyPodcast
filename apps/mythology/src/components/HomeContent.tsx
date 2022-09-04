@@ -41,8 +41,8 @@ export function HomeContent(props: ContentProps) {
   }
   const episodeList = data;
   const home = dataH.data.data.attributes.Home[0];
-  const bgImg =
-    dataH.data.data.attributes.Home[0].sectionBackground.data.attributes.url;
+  let bgImg =""
+  if(dataH.data.data.attributes.Home[0].sectionBackground.data) bgImg= dataH.data.data.attributes.Home[0].sectionBackground.data.attributes.url;
   //url(${Background})
   const basehttp = 'https://';
   const fbUrl = ('' + home.facebookUrl).includes('http')
@@ -75,7 +75,9 @@ export function HomeContent(props: ContentProps) {
   });
   const episodesLength = episodes.length;
   const lastEpisode = episodes[0];
-  const coverImg = lastEpisode.attributes.Capa.data.attributes.url;
+  let coverImg="";
+  console.log(lastEpisode)
+  if( lastEpisode.attributes.Capa.data) coverImg= lastEpisode.attributes.Capa.data.attributes.url;
 
 
   console.log('linksDaata', linksData);
@@ -93,7 +95,7 @@ export function HomeContent(props: ContentProps) {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
 
-          backgroundImage: bgImg ? `url('${bgImg}')` : '../assets/image/bg.png',
+          backgroundImage: (bgImg && bgImg!=="") ? `url('${bgImg}')` :`url('../assets/image/bg.png')` ,
         }}
         className="bannerSize"
       >
@@ -105,16 +107,20 @@ export function HomeContent(props: ContentProps) {
             <div className="ButtonHomeMobile">Escutar agora</div>
           </a>
           <div style={{
-                backgroundImage: coverImg? `url('${coverImg}')`
-                : '../assets/image/thumb_podcast.png',
+                backgroundImage: (coverImg && coverImg!=="")? `url('${coverImg}')`
+                :  `url('../assets/image/thumb_podcast.png')`,
                 
               }} className='EpImg'></div>
           <div style={episodeText}>
             <LightTitle>Episódio {(lastEpisode.attributes.NumeroEpisodio)}</LightTitle>
+            {lastEpisode.attributes.Titulo &&
             <h2>{lastEpisode.attributes.Titulo}</h2>
+            }
             <br></br>
             <div className="EpisodeDescription">
+              {lastEpisode.attributes.Descricao&&
               <p>{lastEpisode.attributes.Descricao}</p>
+            }
             </div>
             <a
               href={'/episode/' + lastEpisode.id}
@@ -139,19 +145,27 @@ export function HomeContent(props: ContentProps) {
         {/* redes sociais */}
         <BoldTitle>Acompanhe nosso trabalho nas redes sociais</BoldTitle>
         <SocialCollection>
-          <a href={ttUrl}>
+          {home.tiktokUrl &&
+          <a href={ ttUrl}>
             {/* <SocialMedia src="../assets/image/"></SocialMedia> */}
-            <SocialImg src="../assets/image/icon_tiktok.png"></SocialImg>
-          </a>
+            <SocialImg alt="Logo do tiktok" src="../assets/image/icon_tiktok.png"></SocialImg>
+          </a>}
+            {home.youtubeUrl &&
           <a href={ytUrl}>
-            <SocialImg src="../assets/image/icon_youtube.png"></SocialImg>
+            <SocialImg alt="Logo do Youtube" src="../assets/image/icon_youtube.png"></SocialImg>
           </a>
+}
+          {
+          home.facebookUrl&&
           <a href={fbUrl}>
-            <SocialImg src="../assets/image/icon_facebook.png"></SocialImg>
+            <SocialImg alt="Logo do facebook"src="../assets/image/icon_facebook.png"></SocialImg>
           </a>
+          }
+          {home.instagramUrl &&
           <a href={igUrl}>
-            <SocialImg src="../assets/image/icon_instagram.png"></SocialImg>
+            <SocialImg alt="Logo do instagram" src="../assets/image/icon_instagram.png"></SocialImg>
           </a>
+          }
         </SocialCollection>
       </section>
     </MainDiv>
