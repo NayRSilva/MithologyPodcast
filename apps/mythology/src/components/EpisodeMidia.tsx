@@ -47,8 +47,9 @@ export function EpisodeMidia(props: EMidiaProps) {
 
   return (
     <>
+    {(strapiSpotify||strapiYoutube)&&
       <EpisodeInfo>Escute via Youtube ou Spotify</EpisodeInfo>
-
+    }
 
       {strapiSpotify && (
         <ControlledSpotify url={urlSpotify}></ControlledSpotify>

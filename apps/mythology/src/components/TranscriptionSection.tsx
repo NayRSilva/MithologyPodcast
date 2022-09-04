@@ -12,9 +12,10 @@ export function TranscriptionSection(props: ESectionProps) {
   return (
     <section>
       <CustomSecondTilte>Transcrição do Episódio</CustomSecondTilte>
-      <TextBox>
+      {props.text&& <TextBox>
         <Markdown>{props.text}</Markdown>
       </TextBox>
+    }
     </section>
   );
 }

@@ -26,10 +26,11 @@ export function EpisodeCard(props: EpisodeCardProps) {
       <BolderEpLink to={'/episode/' + ep.id}>
         {ep.attributes.Titulo}
       </BolderEpLink>
-
+      {ep.attributes.Descricao&&
       <TranscriptionBox>
         <p>{ep.attributes.Descricao}</p>
       </TranscriptionBox>
+      }
     </EpisodeCardDiv>
   );
 }
