@@ -41,22 +41,24 @@ export function HomeContent(props: ContentProps) {
   }
   const episodeList = data;
   const home = dataH.data.data.attributes.Home[0];
+  const tiktok = home.tiktokURL;
+  console.log("tiktok", tiktok, home)
   let bgImg =""
   if(dataH.data.data.attributes.Home[0].sectionBackground.data) bgImg= dataH.data.data.attributes.Home[0].sectionBackground.data.attributes.url;
   //url(${Background})
   const basehttp = 'https://';
-  const fbUrl = ('' + home.facebookUrl).includes('http')
-    ? '' + home.facebookUrl
-    : basehttp + home.facebookUrl;
-  const ttUrl = ('' + home.tiktokUrl).includes('http')
-    ? '' + home.tiktokUrl
-    : basehttp + home.tiktokUrl;
-  const igUrl = ('' + home.instagramUrl).includes('http')
-    ? '' + home.instagramUrl
-    : basehttp + home.instagramUrl;
-  const ytUrl = ('' + home.youtubeUrl).includes('http')
-    ? '' + home.youtubeUrl
-    : basehttp + home.youtubeUrl;
+  const fbURL = ('' + home.facebookURL).includes('http')
+    ? '' + home.facebookURL
+    : basehttp + home.facebookURL;
+  const ttURL = ('' + home.tiktokURL).includes('http')
+    ? '' + home.tiktokURL
+    : basehttp + home.tiktokURL;
+  const igURL = ('' + home.instagramURL).includes('http')
+    ? '' + home.instagramURL
+    : basehttp + home.instagramURL;
+  const ytURL = ('' + home.youtubeURL).includes('http')
+    ? '' + home.youtubeURL
+    : basehttp + home.youtubeURL;
   const episodes = episodeList.data.data.sort((a, b) => {
     if (!a.attributes.NumeroEpisodio) {
       a.attributes.NumeroEpisodio = 0;
@@ -145,24 +147,25 @@ export function HomeContent(props: ContentProps) {
         {/* redes sociais */}
         <BoldTitle>Acompanhe nosso trabalho nas redes sociais</BoldTitle>
         <SocialCollection>
-          {home.tiktokUrl &&
-          <a href={ ttUrl}>
+          {console.log(home.tiktokURL)}
+          {home.tiktokURL &&
+          <a href={ ttURL} target="_blank"  rel="noopener noreferrer">
             {/* <SocialMedia src="../assets/image/"></SocialMedia> */}
             <SocialImg alt="Logo do tiktok" src="../assets/image/icon_tiktok.png"></SocialImg>
           </a>}
-            {home.youtubeUrl &&
-          <a href={ytUrl}>
+            {home.youtubeURL &&
+          <a href={ytURL} target="_blank"  rel="noopener noreferrer">
             <SocialImg alt="Logo do Youtube" src="../assets/image/icon_youtube.png"></SocialImg>
           </a>
 }
           {
-          home.facebookUrl&&
-          <a href={fbUrl}>
+          home.facebookURL&&
+          <a href={fbURL} target="_blank"  rel="noopener noreferrer">
             <SocialImg alt="Logo do facebook"src="../assets/image/icon_facebook.png"></SocialImg>
           </a>
           }
-          {home.instagramUrl &&
-          <a href={igUrl}>
+          {home.instagramURL &&
+          <a href={igURL}  target="_blank"  rel="noopener noreferrer">
             <SocialImg alt="Logo do instagram" src="../assets/image/icon_instagram.png"></SocialImg>
           </a>
           }
