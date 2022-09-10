@@ -120,7 +120,6 @@ export const LightTitle = styled.h3`
 export const FloatTitle = styled.h1`
   font-family: 'FiraSansBold';
   font-size: 45px;
-  letter-spacing: -2px;
   margin-top: -30px;
   margin-bottom: 30px;
 
@@ -143,7 +142,6 @@ export const FloatTitle = styled.h1`
 export const BoldTitle = styled.h1`
   font-family: 'FiraSansBold';
   font-size: 32px;
-  letter-spacing: -2px;
 
   @media (max-width: 1500px) {
     font-size: 30px;
@@ -186,12 +184,10 @@ export const EpisodeInfo = styled.p`
 export const EpisodeSummary = styled.div`
   font-family: 'FiraSans';
   font-size: 20px;
-  letter-spacing: -2px;
   margin: 3% 0;
 
   @media (max-width: 1025px) {
     font-size: 1em;
-    letter-spacing: 0px;
     margin: 3vh 0;
   }
 
@@ -211,7 +207,6 @@ export const CustomSecondTilte = styled.h2`
   margin: 5% 0;
   font-family: 'FiraSansCondensed';
   font-size: 32px;
-  letter-spacing: -2px;
 
   @media (max-width: 1500px) {
     font-size: 26px;
@@ -236,7 +231,6 @@ export const CustomSecondTilte = styled.h2`
 export const TranscriptionBox = styled.div`
   background: #d9d9d9;
   font-family: 'FiraSansCondensed';
-  letter-spacing: -1px;
   overflow-y: auto;
   text-align: center;
   padding: 2vh 2vh;
@@ -342,7 +336,6 @@ export const BolderEpLink = styled(Link)`
   text-decoration: none;
 
   font-size: 32px;
-  letter-spacing: -2px;
   color: #e45c3f;
   margin-top: 20%;
   margin-bottom: 5%;
