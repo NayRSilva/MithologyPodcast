@@ -171,6 +171,21 @@ export function HomeContent(props: ContentProps) {
           }
         </SocialCollection>
       </section>
+      <section >
+          <div style={{
+          width: '100vw',
+          height: '15vh',
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+
+          backgroundImage: `url('../assets/image/barradeapoios.jpg')` ,
+        }}></div>
+
+        </section>
     </MainDiv>
   );
 }
