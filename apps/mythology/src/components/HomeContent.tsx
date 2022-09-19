@@ -103,7 +103,7 @@ export function HomeContent(props: ContentProps) {
       >
         <EpisodeContainer>
           <a
-            href={'episode/' + episodesLength}
+            href={'episode/' + lastEpisode.id}
             style={{ textDecoration: 'none' }}
           >
             <div className="ButtonHomeMobile">Escutar agora</div>
