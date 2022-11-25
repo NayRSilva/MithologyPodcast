@@ -2,7 +2,7 @@
 name: CI/CD Pipeline
 on:
   push:
-    branches: [main, feature/deploy-aws]
+    branches: [main, 'feature/deploy-aws']
 
 jobs:
   # continuous-integration:
